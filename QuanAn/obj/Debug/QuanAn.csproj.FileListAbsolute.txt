@@ -30,3 +30,10 @@ C:\Users\ngota\OneDrive\Documents\GitHub\DA1\QuanAn\obj\Debug\QuanAn.FormCustome
 C:\Users\ngota\OneDrive\Documents\GitHub\DA1\QuanAn\obj\Debug\QuanAn.FormEmployee.resources
 C:\Users\ngota\OneDrive\Documents\GitHub\DA1\QuanAn\obj\Debug\QuanAn.FormFoodChoices.resources
 C:\Users\ngota\OneDrive\Documents\GitHub\DA1\QuanAn\obj\Debug\QuanAn.FormManage.resources
+C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\QuanAn.FormCustomer.resources
+C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\QuanAn.FormEmployee.resources
+C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\QuanAn.FormFoodChoices.resources
+C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\QuanAn.FormLogin.resources
+C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\QuanAn.FormManage.resources
+C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\QuanAn.Migrations.empty.resources
+C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\QuanAn.csprojAssemblyReference.cache

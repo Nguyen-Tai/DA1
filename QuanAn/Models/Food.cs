@@ -27,7 +27,11 @@ namespace QuanAn.Models
         [DisplayName("ĐVT")]
         [Required]
         [MaxLength(25)]
-        public string Unit { get; set; }      
+        public string Unit { get; set; }
+
+        public int Category_ID { get; set; }
+
+        [ForeignKey("Category_ID")]
         public virtual Category Category { get; set; }
     }
 }

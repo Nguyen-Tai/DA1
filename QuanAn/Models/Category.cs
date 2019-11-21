@@ -11,6 +11,7 @@ namespace QuanAn.Models
     [Table("Category")]
     public class Category
     {
+
         public int ID { get; set; }
 
         [Required]

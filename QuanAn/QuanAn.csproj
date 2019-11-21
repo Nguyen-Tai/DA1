@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\BLMenu.cs" />
     <Compile Include="FormCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +94,10 @@
     <Compile Include="Migrations\201911210612164_DB.designer.cs">
       <DependentUpon>201911210612164_DB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911211900349_empty.cs" />
+    <Compile Include="Migrations\201911211900349_empty.designer.cs">
+      <DependentUpon>201911211900349_empty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Bill.cs" />
@@ -122,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911210612164_DB.resx">
       <DependentUpon>201911210612164_DB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911211900349_empty.resx">
+      <DependentUpon>201911211900349_empty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -270,6 +278,7 @@
   <ItemGroup>
     <None Include="Resources\BiaHeineken.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

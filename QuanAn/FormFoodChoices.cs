@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanAn.BL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,5 +35,44 @@ namespace QuanAn
             this.Hide();
             f.ShowDialog();
         }
+
+
+        private void FormFoodChoices_Load(object sender, EventArgs e)
+        {
+            TabControl tab = new TabControl();
+            var listCategory = BLMenu.GetListCategory();
+            tab.Location = new Point(10, 65);
+            tab.Size = new Size(545, 445);
+            int sizebtn = 120;
+            for (int i=0;i<listCategory.Count;i++)
+            {
+                TabPage tp = new TabPage(listCategory[i].Name);
+                tp.Location = new Point(10, 58);
+                tp.BackColor = Color.Transparent;
+                var listFood = BLMenu.GetFoodByCategory(listCategory[i].ID);
+                FlowLayoutPanel fl = new FlowLayoutPanel();
+              //  fl.Margin = new Padding(20); 
+                fl.Location = new Point(0,0);
+                fl.BackColor = Color.Transparent;
+                fl.AutoScroll = true;
+                fl.Size = new Size(545, 445);
+
+                for (int j = 0; j < listFood.Count; j++)
+                {
+                    
+                    Button btn = new Button();
+                    btn.Text = listFood[j].Name;
+                    btn.Margin = new Padding(20);
+                    btn.Size = new Size(sizebtn, sizebtn);
+                   
+                    fl.Controls.Add(btn);
+                }
+                tab.TabPages.Add(tp);
+                tp.Controls.Add(fl);
+            }
+            this.Controls.Add(tab);
+            tab.BringToFront();
+        }
+
     }
 }
