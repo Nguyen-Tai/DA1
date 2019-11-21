@@ -1,0 +1,13 @@
+C:\Users\TNT\Desktop\QuanAn\QuanAn\bin\Debug\QuanAn.exe.config
+C:\Users\TNT\Desktop\QuanAn\QuanAn\bin\Debug\QuanAn.exe
+C:\Users\TNT\Desktop\QuanAn\QuanAn\bin\Debug\QuanAn.pdb
+C:\Users\TNT\Desktop\QuanAn\QuanAn\bin\Debug\EntityFramework.dll
+C:\Users\TNT\Desktop\QuanAn\QuanAn\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\TNT\Desktop\QuanAn\QuanAn\bin\Debug\EntityFramework.xml
+C:\Users\TNT\Desktop\QuanAn\QuanAn\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\QuanAn.Properties.Resources.resources
+C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\QuanAn.csproj.GenerateResource.cache
+C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\QuanAn.csproj.CopyComplete
+C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\QuanAn.exe
+C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\QuanAn.pdb
+C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\QuanAn.Migrations.DB.resources
