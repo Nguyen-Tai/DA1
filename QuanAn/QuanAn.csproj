@@ -59,11 +59,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormCustomer.Designer.cs">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEmployee.Designer.cs">
+      <DependentUpon>FormEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFoodChoices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFoodChoices.Designer.cs">
+      <DependentUpon>FormFoodChoices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormManage.Designer.cs">
+      <DependentUpon>FormManage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201911210612164_DB.cs" />
     <Compile Include="Migrations\201911210612164_DB.designer.cs">
@@ -81,6 +105,21 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Other\StoreContext.cs" />
+    <EmbeddedResource Include="FormCustomer.resx">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEmployee.resx">
+      <DependentUpon>FormEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFoodChoices.resx">
+      <DependentUpon>FormFoodChoices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormManage.resx">
+      <DependentUpon>FormManage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911210612164_DB.resx">
       <DependentUpon>201911210612164_DB.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +131,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -106,6 +146,129 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_power-off-on-shutdown-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5-1520315779-width650height488.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7up-sleek-330ml-2-700x467-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\32393-pot-of-food-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12249875316766.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bia-tiger-lon-01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\door_exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DpyRQk5VAAEhhSc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\giu-trai-cay-tuoi-5-2017.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\goi_sua_vietstreet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\goi_tom_queen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hinhanhmonngonvietnam111.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-computer-icons-user-profile-avatar-icon-5b3899483fa7a8.4711163815304359122607.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-juice-puzzle-drink-drink-png-photos-5a77a916438b86.1144186515177915102767.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mon-che-ngon-de-kinh-doanh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ngo_chien_queenhotel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nuoc-ngot-coke-sleek-330ml-1-700x467-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nuoc-ngot-fanta-vi-cam-lon-330ml-201812281420358633.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nuoc-tang-luc-sting-dau-sleek-lon-330ml-1-700x467-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saymevoi20montrangmiengtrudanhcuay6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\staff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sup_queen_hotel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thung-nuoc-khoang-lavie-750ml-4853.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top-15-hinh-anh-mon-an-ngon-viet-nam-khien-ban-khong-the-roi-mat-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top-15-hinh-anh-mon-an-ngon-viet-nam-khien-ban-khong-the-roi-mat-2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top-15-hinh-anh-mon-an-ngon-viet-nam-khien-ban-khong-the-roi-mat-3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top-15-hinh-anh-mon-an-ngon-viet-nam-khien-ban-khong-the-roi-mat-4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top-15-hinh-anh-mon-an-ngon-viet-nam-khien-ban-khong-the-roi-mat-5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top-15-hinh-anh-mon-an-ngon-viet-nam-khien-ban-khong-the-roi-mat-6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top-15-hinh-anh-mon-an-ngon-viet-nam-khien-ban-khong-the-roi-mat-7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top-15-hinh-anh-mon-an-ngon-viet-nam-khien-ban-khong-the-roi-mat-8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top-15-hinh-anh-mon-an-ngon-viet-nam-khien-ban-khong-the-roi-mat-9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top-15-hinh-anh-mon-an-ngon-viet-nam-khien-ban-khong-the-roi-mat-10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top-15-hinh-anh-mon-an-ngon-viet-nam-khien-ban-khong-the-roi-mat-11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top-15-hinh-anh-mon-an-ngon-viet-nam-khien-ban-khong-the-roi-mat-12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top-15-hinh-anh-mon-an-ngon-viet-nam-khien-ban-khong-the-roi-mat-13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top-15-hinh-anh-mon-an-ngon-viet-nam-khien-ban-khong-the-roi-mat-81.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top-15-hinh-anh-mon-an-ngon-viet-nam-khien-ban-khong-the-roi-mat-91.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transparent-food-clipart-10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BiaHeineken.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
