@@ -36,12 +36,12 @@ namespace QuanAn
                 this.Hide();
                 f1.ShowDialog();
             }
-            if (rbCustomer.Checked)
-            {
-                FormFoodChoices f2 = new FormFoodChoices();
-                this.Hide();
-                f2.ShowDialog();
-            }
+    
+        }
+
+        private void rbStaff_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
