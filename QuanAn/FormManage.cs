@@ -55,10 +55,5 @@ namespace QuanAn
             this.Hide();
             f.ShowDialog();
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rbCustomer = new System.Windows.Forms.RadioButton();
             this.rbStaff = new System.Windows.Forms.RadioButton();
             this.rbAdmin = new System.Windows.Forms.RadioButton();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -48,6 +49,7 @@
             // 
             this.panel1.BackgroundImage = global::QuanAn.Properties.Resources.DpyRQk5VAAEhhSc;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.rbCustomer);
             this.panel1.Controls.Add(this.rbStaff);
             this.panel1.Controls.Add(this.rbAdmin);
             this.panel1.Controls.Add(this.pictureBox10);
@@ -63,20 +65,33 @@
             this.panel1.Size = new System.Drawing.Size(499, 490);
             this.panel1.TabIndex = 1;
             // 
+            // rbCustomer
+            // 
+            this.rbCustomer.AutoSize = true;
+            this.rbCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.rbCustomer.Font = new System.Drawing.Font("UTM Bebas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCustomer.ForeColor = System.Drawing.Color.White;
+            this.rbCustomer.Location = new System.Drawing.Point(286, 344);
+            this.rbCustomer.Name = "rbCustomer";
+            this.rbCustomer.Size = new System.Drawing.Size(93, 27);
+            this.rbCustomer.TabIndex = 56;
+            this.rbCustomer.TabStop = true;
+            this.rbCustomer.Text = "Customer";
+            this.rbCustomer.UseVisualStyleBackColor = false;
+            // 
             // rbStaff
             // 
             this.rbStaff.AutoSize = true;
             this.rbStaff.BackColor = System.Drawing.Color.Transparent;
             this.rbStaff.Font = new System.Drawing.Font("UTM Bebas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbStaff.ForeColor = System.Drawing.Color.White;
-            this.rbStaff.Location = new System.Drawing.Point(312, 344);
+            this.rbStaff.Location = new System.Drawing.Point(191, 344);
             this.rbStaff.Name = "rbStaff";
             this.rbStaff.Size = new System.Drawing.Size(67, 27);
             this.rbStaff.TabIndex = 55;
             this.rbStaff.TabStop = true;
             this.rbStaff.Text = "Staff";
             this.rbStaff.UseVisualStyleBackColor = false;
-            this.rbStaff.CheckedChanged += new System.EventHandler(this.rbStaff_CheckedChanged);
             // 
             // rbAdmin
             // 
@@ -84,7 +99,7 @@
             this.rbAdmin.BackColor = System.Drawing.Color.Transparent;
             this.rbAdmin.Font = new System.Drawing.Font("UTM Bebas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbAdmin.ForeColor = System.Drawing.Color.White;
-            this.rbAdmin.Location = new System.Drawing.Point(191, 344);
+            this.rbAdmin.Location = new System.Drawing.Point(105, 344);
             this.rbAdmin.Name = "rbAdmin";
             this.rbAdmin.Size = new System.Drawing.Size(69, 27);
             this.rbAdmin.TabIndex = 54;
@@ -111,7 +126,7 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.Font = new System.Drawing.Font("Myriad Pro Cond", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(191, 391);
+            this.button1.Location = new System.Drawing.Point(181, 391);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 37);
             this.button1.TabIndex = 6;
@@ -201,6 +216,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton rbCustomer;
         private System.Windows.Forms.RadioButton rbStaff;
         private System.Windows.Forms.RadioButton rbAdmin;
         private System.Windows.Forms.PictureBox pictureBox10;

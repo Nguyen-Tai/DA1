@@ -32,7 +32,7 @@
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnDangNhap = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -55,7 +55,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(912, 618);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox10
             // 
@@ -74,7 +73,7 @@
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.Controls.Add(this.pictureBox1);
-            this.groupBox2.Controls.Add(this.btnDangNhap);
+            this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.pictureBox3);
             this.groupBox2.Controls.Add(this.button3);
@@ -100,17 +99,17 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // btnDangNhap
+            // button2
             // 
-            this.btnDangNhap.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnDangNhap.ForeColor = System.Drawing.Color.Black;
-            this.btnDangNhap.Location = new System.Drawing.Point(638, 37);
-            this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(157, 173);
-            this.btnDangNhap.TabIndex = 61;
-            this.btnDangNhap.Text = "Đăng nhập";
-            this.btnDangNhap.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDangNhap.UseVisualStyleBackColor = false;
+            this.button2.BackColor = System.Drawing.Color.Gainsboro;
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(638, 37);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(157, 173);
+            this.button2.TabIndex = 61;
+            this.button2.Text = "Thu chi";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
@@ -188,7 +187,7 @@
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnDangNhap;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button button3;
