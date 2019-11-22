@@ -96,9 +96,9 @@
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Location = new System.Drawing.Point(1, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(866, 609);
+            this.panel1.Size = new System.Drawing.Size(864, 609);
             this.panel1.TabIndex = 53;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -107,8 +107,8 @@
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.ErrorImage = null;
             this.pictureBox2.Image = global::QuanAn.Properties.Resources.door_exit;
-            this.pictureBox2.Location = new System.Drawing.Point(776, 35);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(776, 18);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(33, 35);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -122,7 +122,7 @@
             this.pictureBox3.ErrorImage = null;
             this.pictureBox3.Image = global::QuanAn.Properties.Resources._1_power_off_on_shutdown_512;
             this.pictureBox3.Location = new System.Drawing.Point(810, 18);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(33, 35);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -172,7 +172,7 @@
             // 
             this.dtpHireDate.Font = new System.Drawing.Font("UTM Bebas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpHireDate.Location = new System.Drawing.Point(310, 250);
-            this.dtpHireDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpHireDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpHireDate.Name = "dtpHireDate";
             this.dtpHireDate.Size = new System.Drawing.Size(156, 26);
             this.dtpHireDate.TabIndex = 72;
@@ -194,11 +194,11 @@
             this.btnLayAnh.Font = new System.Drawing.Font("Myriad Pro Cond", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLayAnh.ForeColor = System.Drawing.Color.White;
             this.btnLayAnh.Location = new System.Drawing.Point(50, 206);
-            this.btnLayAnh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLayAnh.Margin = new System.Windows.Forms.Padding(2);
             this.btnLayAnh.Name = "btnLayAnh";
             this.btnLayAnh.Size = new System.Drawing.Size(126, 30);
             this.btnLayAnh.TabIndex = 71;
-            this.btnLayAnh.Text = "Cập nhật ảnh đại diện";
+            this.btnLayAnh.Text = "Cập nhật ảnh ";
             this.btnLayAnh.UseVisualStyleBackColor = false;
             this.btnLayAnh.Click += new System.EventHandler(this.btnLayAnh_Click);
             // 
@@ -206,7 +206,7 @@
             // 
             this.dtpDOB.Font = new System.Drawing.Font("UTM Bebas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDOB.Location = new System.Drawing.Point(310, 100);
-            this.dtpDOB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpDOB.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(156, 26);
             this.dtpDOB.TabIndex = 68;
@@ -216,7 +216,7 @@
             this.picEmployee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picEmployee.ErrorImage = null;
             this.picEmployee.Location = new System.Drawing.Point(32, 47);
-            this.picEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picEmployee.Margin = new System.Windows.Forms.Padding(2);
             this.picEmployee.Name = "picEmployee";
             this.picEmployee.Size = new System.Drawing.Size(156, 152);
             this.picEmployee.TabIndex = 70;
@@ -262,7 +262,7 @@
             this.pictureBox11.ErrorImage = null;
             this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
             this.pictureBox11.Location = new System.Drawing.Point(769, 6);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(33, 35);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -275,7 +275,7 @@
             this.pictureBox10.ErrorImage = null;
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
             this.pictureBox10.Location = new System.Drawing.Point(793, -33);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(33, 35);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -605,7 +605,7 @@
             this.ClientSize = new System.Drawing.Size(866, 609);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormEmployee";
             this.Load += new System.EventHandler(this.FormEmployee_Load);

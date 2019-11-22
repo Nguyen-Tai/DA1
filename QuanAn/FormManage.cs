@@ -44,14 +44,14 @@ namespace QuanAn
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            FormCustomer f = new FormCustomer();
+            FormCustomers f = new FormCustomers();
             this.Hide();
             f.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormCustomer f = new FormCustomer();
+            FormCustomers f = new FormCustomers();
             this.Hide();
             f.ShowDialog();
         }

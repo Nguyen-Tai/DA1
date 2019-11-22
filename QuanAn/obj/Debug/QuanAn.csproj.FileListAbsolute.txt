@@ -49,7 +49,6 @@ C:\Users\Admin\Documents\GitHub\QTCSDL\DA1\QuanAn\bin\Debug\EntityFramework.SqlS
 C:\Users\Admin\Documents\GitHub\QTCSDL\DA1\QuanAn\bin\Debug\EntityFramework.xml
 C:\Users\Admin\Documents\GitHub\QTCSDL\DA1\QuanAn\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Admin\Documents\GitHub\QTCSDL\DA1\QuanAn\obj\Debug\QuanAn.csprojAssemblyReference.cache
-C:\Users\Admin\Documents\GitHub\QTCSDL\DA1\QuanAn\obj\Debug\QuanAn.FormCustomer.resources
 C:\Users\Admin\Documents\GitHub\QTCSDL\DA1\QuanAn\obj\Debug\QuanAn.FormEmployee.resources
 C:\Users\Admin\Documents\GitHub\QTCSDL\DA1\QuanAn\obj\Debug\QuanAn.FormFoodChoices.resources
 C:\Users\Admin\Documents\GitHub\QTCSDL\DA1\QuanAn\obj\Debug\QuanAn.FormLogin.resources
@@ -68,3 +67,6 @@ C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\QuanAn.FormLoginManage.resources
 C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\RdlCompile.cache
 C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\RdlCompile.compiled
 C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\QuanAn.Migrations.ImageFood.resources
+C:\Users\Admin\Documents\GitHub\QTCSDL\DA1\QuanAn\obj\Debug\QuanAn.FormFoodManger.resources
+C:\Users\Admin\Documents\GitHub\QTCSDL\DA1\QuanAn\obj\Debug\QuanAn.Migrations.ImageFood.resources
+C:\Users\Admin\Documents\GitHub\QTCSDL\DA1\QuanAn\obj\Debug\QuanAn.FormCustomers.resources
