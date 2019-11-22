@@ -59,8 +59,9 @@
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(499, 490);
+            this.panel1.Size = new System.Drawing.Size(374, 398);
             this.panel1.TabIndex = 1;
             // 
             // rbStaff
@@ -69,9 +70,10 @@
             this.rbStaff.BackColor = System.Drawing.Color.Transparent;
             this.rbStaff.Font = new System.Drawing.Font("UTM Bebas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbStaff.ForeColor = System.Drawing.Color.White;
-            this.rbStaff.Location = new System.Drawing.Point(312, 344);
+            this.rbStaff.Location = new System.Drawing.Point(234, 280);
+            this.rbStaff.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbStaff.Name = "rbStaff";
-            this.rbStaff.Size = new System.Drawing.Size(67, 27);
+            this.rbStaff.Size = new System.Drawing.Size(54, 23);
             this.rbStaff.TabIndex = 55;
             this.rbStaff.TabStop = true;
             this.rbStaff.Text = "Staff";
@@ -84,9 +86,10 @@
             this.rbAdmin.BackColor = System.Drawing.Color.Transparent;
             this.rbAdmin.Font = new System.Drawing.Font("UTM Bebas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbAdmin.ForeColor = System.Drawing.Color.White;
-            this.rbAdmin.Location = new System.Drawing.Point(191, 344);
+            this.rbAdmin.Location = new System.Drawing.Point(143, 280);
+            this.rbAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbAdmin.Name = "rbAdmin";
-            this.rbAdmin.Size = new System.Drawing.Size(69, 27);
+            this.rbAdmin.Size = new System.Drawing.Size(56, 23);
             this.rbAdmin.TabIndex = 54;
             this.rbAdmin.TabStop = true;
             this.rbAdmin.Text = "Admin";
@@ -97,9 +100,10 @@
             this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox10.ErrorImage = null;
             this.pictureBox10.Image = global::QuanAn.Properties.Resources._1_power_off_on_shutdown_512;
-            this.pictureBox10.Location = new System.Drawing.Point(443, 12);
+            this.pictureBox10.Location = new System.Drawing.Point(332, 10);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(44, 43);
+            this.pictureBox10.Size = new System.Drawing.Size(33, 35);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox10.TabIndex = 53;
             this.pictureBox10.TabStop = false;
@@ -111,9 +115,10 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.Font = new System.Drawing.Font("Myriad Pro Cond", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(191, 391);
+            this.button1.Location = new System.Drawing.Point(143, 318);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 37);
+            this.button1.Size = new System.Drawing.Size(94, 30);
             this.button1.TabIndex = 6;
             this.button1.Text = "Đăng nhập";
             this.button1.UseVisualStyleBackColor = false;
@@ -125,9 +130,10 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("UTM Bebas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(100, 301);
+            this.label3.Location = new System.Drawing.Point(75, 245);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 25);
+            this.label3.Size = new System.Drawing.Size(60, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Mật khẩu";
             // 
@@ -137,9 +143,10 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("UTM Bebas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(100, 263);
+            this.label2.Location = new System.Drawing.Point(75, 214);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 25);
+            this.label2.Size = new System.Drawing.Size(61, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Tài khoản";
             // 
@@ -149,9 +156,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("UTM Bebas", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(137, 201);
+            this.label1.Location = new System.Drawing.Point(103, 163);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(231, 41);
+            this.label1.Size = new System.Drawing.Size(195, 34);
             this.label1.TabIndex = 3;
             this.label1.Text = "ĐĂNG NHẬP HỆ THỐNG";
             // 
@@ -160,35 +168,40 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Image = global::QuanAn.Properties.Resources.kisspng_computer_icons_user_profile_avatar_icon_5b3899483fa7a8_4711163815304359122607;
-            this.pictureBox1.Location = new System.Drawing.Point(191, 65);
+            this.pictureBox1.Location = new System.Drawing.Point(143, 53);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(127, 118);
+            this.pictureBox1.Size = new System.Drawing.Size(95, 96);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(191, 301);
+            this.textBox2.Location = new System.Drawing.Point(143, 245);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(188, 22);
+            this.textBox2.Size = new System.Drawing.Size(142, 20);
             this.textBox2.TabIndex = 1;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(191, 263);
+            this.textBox1.Location = new System.Drawing.Point(143, 214);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 22);
+            this.textBox1.Size = new System.Drawing.Size(142, 20);
             this.textBox1.TabIndex = 0;
             // 
             // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 490);
+            this.ClientSize = new System.Drawing.Size(373, 398);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -16,7 +16,7 @@ namespace QuanAn
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormFoodChoices());
+            Application.Run(new FormEmployee());
         }
     }
 }
