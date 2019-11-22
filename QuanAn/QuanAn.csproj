@@ -109,6 +109,10 @@
     <Compile Include="Migrations\201911211900349_empty.designer.cs">
       <DependentUpon>201911211900349_empty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911220755176_ImageFood.cs" />
+    <Compile Include="Migrations\201911220755176_ImageFood.designer.cs">
+      <DependentUpon>201911220755176_ImageFood.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Bill.cs" />
@@ -144,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911211900349_empty.resx">
       <DependentUpon>201911211900349_empty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911220755176_ImageFood.resx">
+      <DependentUpon>201911220755176_ImageFood.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

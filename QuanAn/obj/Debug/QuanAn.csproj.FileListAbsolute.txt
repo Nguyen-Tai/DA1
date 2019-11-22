@@ -64,3 +64,7 @@ C:\Users\Admin\Documents\GitHub\QTCSDL\DA1\QuanAn\obj\Debug\RdlCompile.compiled
 C:\Users\Admin\Documents\GitHub\QTCSDL\DA1\QuanAn\obj\Debug\QuanAn.csproj.CopyComplete
 C:\Users\Admin\Documents\GitHub\QTCSDL\DA1\QuanAn\obj\Debug\QuanAn.exe
 C:\Users\Admin\Documents\GitHub\QTCSDL\DA1\QuanAn\obj\Debug\QuanAn.pdb
+C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\QuanAn.FormLoginManage.resources
+C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\RdlCompile.cache
+C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\RdlCompile.compiled
+C:\Users\TNT\Desktop\QuanAn\QuanAn\obj\Debug\QuanAn.Migrations.ImageFood.resources

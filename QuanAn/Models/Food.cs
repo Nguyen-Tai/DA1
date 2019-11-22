@@ -29,6 +29,7 @@ namespace QuanAn.Models
         [MaxLength(25)]
         public string Unit { get; set; }
 
+        public string Image { get; set; }
         public int Category_ID { get; set; }
 
         [ForeignKey("Category_ID")]
