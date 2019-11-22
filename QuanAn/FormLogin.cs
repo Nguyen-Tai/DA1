@@ -43,5 +43,10 @@ namespace QuanAn
                 f2.ShowDialog();
             }
         }
+
+        private void rbStaff_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
