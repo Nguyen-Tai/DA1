@@ -67,7 +67,7 @@ namespace QuanAn
             f.ShowDialog();
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        private void btnThem_Click_1(object sender, EventArgs e)
         {
             Them = true;
             resettext();
@@ -83,7 +83,7 @@ namespace QuanAn
             txtHoTen.Focus();
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void btnEdit_Click_1(object sender, EventArgs e)
         {
             // Kích hoạt biến Sửa
             Them = false;
@@ -100,85 +100,7 @@ namespace QuanAn
             txtHoTen.Focus();
         }
 
-        private void btnHuy_Click(object sender, EventArgs e)
-        {
-            // Xóa trống các đối tượng trong Panel
-            resettext();
-            groupBox1.Enabled = false;
-            // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát
-            btnThem.Enabled = true;
-            btnEdit.Enabled = true;
-            btnDel.Enabled = true;
-            // Không cho thao tác trên các nút Lưu / Hủy / Panel
-            btnCapNhat.Enabled = false;
-            btnHuy.Enabled = false;
-        }
-
-        private void btnDel_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Hiện thông báo xác nhận việc xóa mẫu tin       
-                // Khai báo biến traloi            
-                DialogResult traloi;
-                // Hiện hộp thoại hỏi đáp    
-                traloi = MessageBox.Show("Chắc xóa mẫu tin này không?", "Trả lời", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                // Kiểm tra có nhắp chọn nút Ok không?           
-                if (traloi == DialogResult.Yes)
-                {
-                    try
-                    {
-                        StoreContext db = new StoreContext();
-                        int idEm = Convert.ToInt32(txtMaNV.Text);
-                        var nvQuery = from em in db.Employees
-                                      where em.ID == idEm
-                                      select em;
-                        db.Employees.RemoveRange(nvQuery);
-                        db.SaveChanges();
-                        // Cập nhật lại DataGridView 
-                        LoadData();
-                        // Thông báo 
-                        MessageBox.Show("Đã xóa xong!");
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Không xóa được. Lỗi rồi!!!");
-                    }
-                }
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Không xóa được. Lỗi rồi");
-            }
-        }
-
-        private void btnTim_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void FormEmployee_Load(object sender, EventArgs e)
-        {
-            dgvNV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvNV.AllowUserToAddRows = false;
-            dgvNV.ReadOnly = true;
-            LoadData();
-            //// Không cho thao tác trên các nút Lưu / Hủy
-            btnCapNhat.Enabled = false;
-            btnHuy.Enabled = false;
-            //// Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát
-            btnThem.Enabled = true;
-            btnEdit.Enabled = true;
-            btnDel.Enabled = true;
-            groupBox1.Enabled = false;
-        }
-
-        private void btnCapNhat_Click(object sender, EventArgs e)
+        private void btnCapNhat_Click_1(object sender, EventArgs e)
         {
             if (Them)
             {
@@ -255,7 +177,73 @@ namespace QuanAn
             }
         }
 
-        private void dgvNV_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnHuy_Click_1(object sender, EventArgs e)
+        {
+
+            // Xóa trống các đối tượng trong Panel
+            resettext();
+            groupBox1.Enabled = false;
+            // Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát
+            btnThem.Enabled = true;
+            btnEdit.Enabled = true;
+            btnDel.Enabled = true;
+            // Không cho thao tác trên các nút Lưu / Hủy / Panel
+            btnCapNhat.Enabled = false;
+            btnHuy.Enabled = false;
+        }
+
+        private void btnDel_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                // Hiện thông báo xác nhận việc xóa mẫu tin       
+                // Khai báo biến traloi            
+                DialogResult traloi;
+                // Hiện hộp thoại hỏi đáp    
+                traloi = MessageBox.Show("Chắc xóa mẫu tin này không?", "Trả lời", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                // Kiểm tra có nhắp chọn nút Ok không?           
+                if (traloi == DialogResult.Yes)
+                {
+                    try
+                    {
+                        StoreContext db = new StoreContext();
+                        int idEm = Convert.ToInt32(txtMaNV.Text);
+                        var nvQuery = from em in db.Employees
+                                      where em.ID == idEm
+                                      select em;
+                        db.Employees.RemoveRange(nvQuery);
+                        db.SaveChanges();
+                        // Cập nhật lại DataGridView 
+                        LoadData();
+                        // Thông báo 
+                        MessageBox.Show("Đã xóa xong!");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Không xóa được. Lỗi rồi!!!");
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không xóa được. Lỗi rồi");
+            }
+        }
+
+        private void btnLayAnh_Click_1(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "JPEG|*.jpg" })
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    picEmployee.Image = System.Drawing.Image.FromFile(ofd.FileName);
+
+                    imagepath = ofd.FileName;
+                }
+            }
+        }
+
+        private void dgvNV_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -264,7 +252,7 @@ namespace QuanAn
                 this.txtHoTen.Text = dgvNV.Rows[r].Cells["Name"].Value.ToString();
                 this.dtpDOB.Text = dgvNV.Rows[r].Cells["DOB"].Value.ToString();
                 this.txtDiaChi.Text = dgvNV.Rows[r].Cells["Address"].Value.ToString();
-                this.txtSoDT.Text = dgvNV.Rows[r].Cells["Phone"].Value.ToString();                
+                this.txtSoDT.Text = dgvNV.Rows[r].Cells["Phone"].Value.ToString();
                 this.dtpHireDate.Text = dgvNV.Rows[r].Cells["HireDate"].Value.ToString();
                 if (dgvNV.Rows[r].Cells["Sex"].Value.ToString() == "Nam") rdbNam.Checked = true; else rdbNam.Checked = false;
                 if (dgvNV.Rows[r].Cells["Sex"].Value.ToString() == "Nữ") rdbNu.Checked = true; else rdbNu.Checked = false;
@@ -278,17 +266,38 @@ namespace QuanAn
             { }
         }
 
-        private void btnLayAnh_Click(object sender, EventArgs e)
+        private void pictureBox2_Click_1(object sender, EventArgs e)
         {
-            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "JPEG|*.jpg" })
-            {
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    picEmployee.Image = System.Drawing.Image.FromFile(ofd.FileName);
+            FormManage f = new FormManage();
+            this.Hide();
+            f.ShowDialog();
+        }
 
-                    imagepath = ofd.FileName;
-                }
-            }
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+            // Khai báo biến traloi
+            DialogResult traloi;
+            // Hiện hộp thoại hỏi đáp
+            traloi = MessageBox.Show("Chắc không?", "Trả lời",
+            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            // Kiểm tra có nhắp chọn nút Ok không?
+            if (traloi == DialogResult.OK) this.Close();
+        }
+
+        private void FormEmployee_Load(object sender, EventArgs e)
+        {
+            dgvNV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvNV.AllowUserToAddRows = false;
+            dgvNV.ReadOnly = true;
+            LoadData();
+            //// Không cho thao tác trên các nút Lưu / Hủy
+            btnCapNhat.Enabled = false;
+            btnHuy.Enabled = false;
+            //// Cho thao tác trên các nút Thêm / Sửa / Xóa / Thoát
+            btnThem.Enabled = true;
+            btnEdit.Enabled = true;
+            btnDel.Enabled = true;
+            groupBox1.Enabled = false;
         }
     }
 }

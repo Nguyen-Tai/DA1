@@ -43,5 +43,15 @@ namespace QuanAn
         {
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (rbAdmin.Checked)
+            {
+                FormManage f1 = new FormManage();
+                this.Hide();
+                f1.ShowDialog();
+            }
+        }
     }
 }

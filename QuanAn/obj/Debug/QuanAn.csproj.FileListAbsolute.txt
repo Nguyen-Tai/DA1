@@ -154,3 +154,4 @@ C:\Users\TNT\Desktop\MyQuanAn\QuanAn\bin\Debug\zh-CHS\Microsoft.ReportViewer.Dat
 C:\Users\TNT\Desktop\MyQuanAn\QuanAn\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
 C:\Users\TNT\Desktop\MyQuanAn\QuanAn\obj\Debug\QuanAn.Migrations.StoreProc.resources
 C:\Users\TNT\Desktop\MyQuanAn\QuanAn\obj\Debug\QuanAn.csprojAssemblyReference.cache
+C:\Users\TNT\Desktop\MyQuanAn\QuanAn\obj\Debug\QuanAn.FoodManager.resources

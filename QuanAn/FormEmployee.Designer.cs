@@ -96,25 +96,24 @@
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Location = new System.Drawing.Point(1, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(866, 609);
             this.panel1.TabIndex = 53;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.ErrorImage = null;
             this.pictureBox2.Image = global::QuanAn.Properties.Resources.door_exit;
-            this.pictureBox2.Location = new System.Drawing.Point(776, 35);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(776, 18);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(33, 35);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 73;
+            this.pictureBox2.TabIndex = 79;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
             // 
             // pictureBox3
             // 
@@ -122,13 +121,13 @@
             this.pictureBox3.ErrorImage = null;
             this.pictureBox3.Image = global::QuanAn.Properties.Resources._1_power_off_on_shutdown_512;
             this.pictureBox3.Location = new System.Drawing.Point(810, 18);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(33, 35);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 72;
+            this.pictureBox3.TabIndex = 78;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click_1);
             // 
             // groupBox1
             // 
@@ -154,7 +153,7 @@
             this.groupBox1.Location = new System.Drawing.Point(343, 75);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(499, 292);
-            this.groupBox1.TabIndex = 68;
+            this.groupBox1.TabIndex = 74;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chi tiết";
             // 
@@ -172,7 +171,7 @@
             // 
             this.dtpHireDate.Font = new System.Drawing.Font("UTM Bebas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpHireDate.Location = new System.Drawing.Point(310, 250);
-            this.dtpHireDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpHireDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpHireDate.Name = "dtpHireDate";
             this.dtpHireDate.Size = new System.Drawing.Size(156, 26);
             this.dtpHireDate.TabIndex = 72;
@@ -194,19 +193,19 @@
             this.btnLayAnh.Font = new System.Drawing.Font("Myriad Pro Cond", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLayAnh.ForeColor = System.Drawing.Color.White;
             this.btnLayAnh.Location = new System.Drawing.Point(50, 206);
-            this.btnLayAnh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLayAnh.Margin = new System.Windows.Forms.Padding(2);
             this.btnLayAnh.Name = "btnLayAnh";
             this.btnLayAnh.Size = new System.Drawing.Size(126, 30);
             this.btnLayAnh.TabIndex = 71;
-            this.btnLayAnh.Text = "Cập nhật ảnh đại diện";
+            this.btnLayAnh.Text = "Cập nhật ảnh ";
             this.btnLayAnh.UseVisualStyleBackColor = false;
-            this.btnLayAnh.Click += new System.EventHandler(this.btnLayAnh_Click);
+            this.btnLayAnh.Click += new System.EventHandler(this.btnLayAnh_Click_1);
             // 
             // dtpDOB
             // 
             this.dtpDOB.Font = new System.Drawing.Font("UTM Bebas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDOB.Location = new System.Drawing.Point(310, 100);
-            this.dtpDOB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpDOB.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(156, 26);
             this.dtpDOB.TabIndex = 68;
@@ -216,7 +215,7 @@
             this.picEmployee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picEmployee.ErrorImage = null;
             this.picEmployee.Location = new System.Drawing.Point(32, 47);
-            this.picEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picEmployee.Margin = new System.Windows.Forms.Padding(2);
             this.picEmployee.Name = "picEmployee";
             this.picEmployee.Size = new System.Drawing.Size(156, 152);
             this.picEmployee.TabIndex = 70;
@@ -262,7 +261,7 @@
             this.pictureBox11.ErrorImage = null;
             this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
             this.pictureBox11.Location = new System.Drawing.Point(769, 6);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(33, 35);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -275,7 +274,7 @@
             this.pictureBox10.ErrorImage = null;
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
             this.pictureBox10.Location = new System.Drawing.Point(793, -33);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(33, 35);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -377,7 +376,7 @@
             this.groupBox6.Location = new System.Drawing.Point(23, 75);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(293, 292);
-            this.groupBox6.TabIndex = 71;
+            this.groupBox6.TabIndex = 77;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Tìm kiếm";
             // 
@@ -392,7 +391,7 @@
             this.btnCapNhat.TabIndex = 54;
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.UseVisualStyleBackColor = true;
-            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click_1);
             // 
             // btnHuy
             // 
@@ -406,7 +405,7 @@
             this.btnHuy.TabIndex = 58;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click_1);
             // 
             // btnThem
             // 
@@ -419,7 +418,7 @@
             this.btnThem.TabIndex = 52;
             this.btnThem.Text = "Nhập";
             this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
             // btnTim
             // 
@@ -430,7 +429,6 @@
             this.btnTim.TabIndex = 9;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
-            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // btnEdit
             // 
@@ -443,7 +441,7 @@
             this.btnEdit.TabIndex = 55;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click_1);
             // 
             // btnDel
             // 
@@ -457,7 +455,7 @@
             this.btnDel.TabIndex = 57;
             this.btnDel.Text = "Xóa";
             this.btnDel.UseVisualStyleBackColor = true;
-            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click_1);
             // 
             // txtSearch
             // 
@@ -500,7 +498,7 @@
             this.label17.Location = new System.Drawing.Point(270, 18);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(316, 40);
-            this.label17.TabIndex = 70;
+            this.label17.TabIndex = 76;
             this.label17.Text = "Quản Lý Thông Tin Nhân viên";
             // 
             // groupBox2
@@ -510,7 +508,7 @@
             this.groupBox2.Location = new System.Drawing.Point(25, 385);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(818, 206);
-            this.groupBox2.TabIndex = 69;
+            this.groupBox2.TabIndex = 75;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách";
             // 
@@ -533,7 +531,7 @@
             this.dgvNV.RowHeadersWidth = 51;
             this.dgvNV.Size = new System.Drawing.Size(788, 176);
             this.dgvNV.TabIndex = 0;
-            this.dgvNV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNV_CellClick);
+            this.dgvNV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNV_CellClick_1);
             // 
             // ID
             // 
@@ -605,7 +603,7 @@
             this.ClientSize = new System.Drawing.Size(866, 609);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormEmployee";
             this.Load += new System.EventHandler(this.FormEmployee_Load);

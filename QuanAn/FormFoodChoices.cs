@@ -68,7 +68,9 @@ namespace QuanAn
                     PictureBox pc = new PictureBox();
                     pc.Location = new Point(20, 10);
                     pc.Size = new Size(130, 120);
-                    pc.Image = Image.FromFile(@"C:\Users\TNT\Desktop\image_186656.jpg");
+                    if (listFood[j].Image == null) pc.Image = Image.FromFile(@"C:\Users\TNT\Desktop\image_186656.jpg");
+                    else pc.Image = Image.FromFile(listFood[j].Image);
+
                     pc.SizeMode = PictureBoxSizeMode.StretchImage;
                     Label name = new Label();
                     Label lbGia = new Label();
@@ -116,7 +118,7 @@ namespace QuanAn
                     pn.Controls.Add(VND);
                     VND.BringToFront();
 
-                    name.Text = "Bánh mì chả cá";
+                    name.Text = listFood[j].Name;
                     name.Size = new Size(120, 20);
                     name.Font = new Font("UTM Bebas", 10, FontStyle.Regular);
                     name.Location = new Point(lbGia.Location.X, lbGia.Location.Y - lbGia.Height);
