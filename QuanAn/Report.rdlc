@@ -156,7 +156,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
         <Top>1.25223in</Top>
-        <Left>1.3641in</Left>
+        <Left>1.4618in</Left>
         <Height>0.34722in</Height>
         <Width>1.5625in</Width>
         <ZIndex>4</ZIndex>
@@ -253,8 +253,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>1.91889in</Top>
-        <Left>0.21354in</Left>
+        <Top>2.62775in</Top>
+        <Left>0.29364in</Left>
         <Height>0.1875in</Height>
         <Width>3.84771in</Width>
         <ZIndex>7</ZIndex>
@@ -676,8 +676,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>2.22992in</Top>
-        <Left>0.18948in</Left>
+        <Top>2.93878in</Top>
+        <Left>0.26958in</Left>
         <Height>0.5in</Height>
         <Width>3.9375in</Width>
         <ZIndex>8</ZIndex>
@@ -702,8 +702,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>2.99875in</Top>
-        <Left>0.24876in</Left>
+        <Top>3.70761in</Top>
+        <Left>0.32886in</Left>
         <Height>0.17758in</Height>
         <Width>3.84771in</Width>
         <ZIndex>9</ZIndex>
@@ -738,8 +738,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox23</rd:DefaultName>
-        <Top>3.17633in</Top>
-        <Left>1.21428in</Left>
+        <Top>3.88519in</Top>
+        <Left>1.29438in</Left>
         <Height>0.27083in</Height>
         <Width>1.90229in</Width>
         <ZIndex>10</ZIndex>
@@ -768,8 +768,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox24</rd:DefaultName>
-        <Top>3.5166in</Top>
-        <Left>0.23115in</Left>
+        <Top>4.22546in</Top>
+        <Left>0.31125in</Left>
         <Height>0.25in</Height>
         <Width>2.01042in</Width>
         <ZIndex>11</ZIndex>
@@ -798,8 +798,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox24</rd:DefaultName>
-        <Top>3.79437in</Top>
-        <Left>0.23115in</Left>
+        <Top>4.50323in</Top>
+        <Left>0.31125in</Left>
         <Height>0.25in</Height>
         <Width>2.14584in</Width>
         <ZIndex>12</ZIndex>
@@ -828,8 +828,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox24</rd:DefaultName>
-        <Top>4.08604in</Top>
-        <Left>0.23115in</Left>
+        <Top>4.7949in</Top>
+        <Left>0.31125in</Left>
         <Height>0.25in</Height>
         <Width>2.88542in</Width>
         <ZIndex>13</ZIndex>
@@ -875,8 +875,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>ID</rd:DefaultName>
-        <Top>2.79937in</Top>
-        <Left>2.43948in</Left>
+        <Top>3.50823in</Top>
+        <Left>2.51958in</Left>
         <Height>0.25in</Height>
         <Width>1.63542in</Width>
         <ZIndex>14</ZIndex>
@@ -890,11 +890,83 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="BillDate2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Nhân Viên : </Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value>=First(Fields!Employee.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>BillDate</rd:DefaultName>
+        <Top>2.09162in</Top>
+        <Left>0.26958in</Left>
+        <Height>0.25in</Height>
+        <Width>3.6875in</Width>
+        <ZIndex>15</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="BillDate3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Khách Hàng :</Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value>=First(Fields!Customer.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>BillDate</rd:DefaultName>
+        <Top>2.39718in</Top>
+        <Left>0.27354in</Left>
+        <Height>0.25in</Height>
+        <Width>3.68354in</Width>
+        <ZIndex>16</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>4.58604in</Height>
+    <Height>5.28742in</Height>
     <Style />
   </Body>
-  <Width>4.80083in</Width>
+  <Width>4.50916in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>

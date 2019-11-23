@@ -141,6 +141,10 @@
     <Compile Include="Migrations\201911230457293_StoreProc.designer.cs">
       <DependentUpon>201911230457293_StoreProc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911231206140_fixDB.cs" />
+    <Compile Include="Migrations\201911231206140_fixDB.designer.cs">
+      <DependentUpon>201911231206140_fixDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Bill.cs" />
@@ -195,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911230457293_StoreProc.resx">
       <DependentUpon>201911230457293_StoreProc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911231206140_fixDB.resx">
+      <DependentUpon>201911231206140_fixDB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

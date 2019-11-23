@@ -22,7 +22,7 @@ namespace QuanAn.Models
 
         [DisplayName("Đơn giá")]
         [Required]
-        public float Price { get; set; }
+        public int Price { get; set; }
 
         [DisplayName("ĐVT")]
         [Required]

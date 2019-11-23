@@ -44,22 +44,19 @@ namespace QuanAn
             TabControl tab = new TabControl();
             var listCategory = BLMenu.GetListCategory();
             tab.Location = new Point(10, 65);
-            tab.Size = new Size(545, 445);
+            tab.Size = new Size(555, 445);
             tab.Font = new Font("UTM Bebas", 12, FontStyle.Regular);
             for (int i = 0; i < listCategory.Count; i++)
             {
                 TabPage tp = new TabPage(listCategory[i].Name);
                 tp.Location = new Point(10, 58);
                 tp.BackColor = Color.Transparent;
-
                 var listFood = BLMenu.GetFoodByCategory(listCategory[i].ID);
                 FlowLayoutPanel fl = new FlowLayoutPanel();
                 fl.Location = new Point(0, 0);
                 fl.BackColor = Color.Transparent;
                 fl.AutoScroll = true;
-
-                fl.Size = new Size(545, 445);
-
+                fl.Dock = DockStyle.Fill;
                 for (int j = 0; j < listFood.Count; j++)
                 {
                     Panel pn = new Panel();
@@ -107,7 +104,7 @@ namespace QuanAn
                     pn.Controls.Add(btnChon);
                     pn.Controls.Add(sl);
                     pn.Controls.Add(numeric);
-                    lbGia.Text = "100.000";
+                    lbGia.Text = String.Format("{0:n0}", listFood[j].Price);
                     lbGia.Location = new Point(sl.Location.X, sl.Location.Y - sl.Height);
                     pn.Controls.Add(lbGia);
 
@@ -139,13 +136,12 @@ namespace QuanAn
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.DefaultCellStyle.Font = new Font("UTM",10, FontStyle.Regular);           
+            dataGridView1.DefaultCellStyle.Font = new Font("UTM",10, FontStyle.Regular);
         }
 
         private void chon_Click(object sender, EventArgs e)
         {
             Button b = sender as Button;
-            ///  MessageBox.Show(b.Tag.ToString());
             var pr = b.Parent;
             var num = pr.Controls.Find("SL", false).First() as NumericUpDown;
             if (num.Value > 0)
@@ -153,6 +149,9 @@ namespace QuanAn
                 BLDetails.AddOrUpdateDetail(Convert.ToInt32(b.Tag.ToString()), ID_Bill, Convert.ToInt32(num.Value));
                 pr.BackColor = Color.Yellow;
                 dataGridView1.DataSource = BLBill.GetBill(ID_Bill);
+                dataGridView1.Columns["Price"].DefaultCellStyle.Format = "#,##0";
+                dataGridView1.Columns["Total"].DefaultCellStyle.Format = "#,##0";
+
             }
         }
         private void bochon_Click(object sender, EventArgs e)
@@ -166,6 +165,8 @@ namespace QuanAn
                 BLDetails.DeleteDetail(Convert.ToInt32(b.Tag.ToString()), ID_Bill);
                 pr.BackColor = Color.DarkGray;
                 dataGridView1.DataSource = BLBill.GetBill(ID_Bill);
+                dataGridView1.Columns["Price"].DefaultCellStyle.Format = "#,##0";
+                dataGridView1.Columns["Total"].DefaultCellStyle.Format = "#,##0";
             }
             catch { }
         }

@@ -87,7 +87,7 @@ namespace QuanAn
                     var food = new Food();
                     food.Name = txtTen.Text;
                     food.Unit = txtDonVi.Text;
-                    food.Price = float.Parse(txtDonGia.Text);
+                    food.Price = Convert.ToInt32(txtDonGia.Text);
                     food.Category_ID = Convert.ToInt32(cmbLoai.SelectedValue.ToString());
                     food.Image = imagepath;
                     db.Foods.Add(food);
@@ -123,7 +123,7 @@ namespace QuanAn
                     {
                         fQuery.Name = txtTen.Text;
                         fQuery.Unit = txtDonVi.Text;
-                        fQuery.Price = float.Parse(txtDonGia.Text);
+                        fQuery.Price = Convert.ToInt32(txtDonGia.Text);
                         fQuery.Category_ID = Convert.ToInt32(cmbLoai.SelectedValue.ToString());
                         fQuery.Image = imagepath;
                         db.SaveChanges();
