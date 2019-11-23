@@ -33,5 +33,16 @@ namespace QuanAn.Properties {
                 return ((string)(this["CafeteriaConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-6J86EQ5\\SQLEXPRESS;Initial Catalog=Cafeteria;Integrated Secur" +
+            "ity=True")]
+        public string CafeteriaConnectionString1 {
+            get {
+                return ((string)(this["CafeteriaConnectionString1"]));
+            }
+        }
     }
 }

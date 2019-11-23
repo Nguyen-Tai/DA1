@@ -15,8 +15,14 @@ namespace QuanAn.Models
         public int ID { get; set; }
         public int Amount { get; set; }
         
+        public int Bill_ID { get; set; }
+
+        [ForeignKey("Bill_ID")]
         public virtual Bill Bill { get; set; }
-        
+
+        public int Food_ID { get; set; }
+
+        [ForeignKey("Food_ID")]
         public virtual Food Food { get; set; }
     }
 }

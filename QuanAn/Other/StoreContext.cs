@@ -20,6 +20,5 @@ namespace QuanAn
         public DbSet<Bill> Bills { get; set; }
         public DbSet<Detail> Details { get; set; }
         public DbSet<Account> Accounts { get; set; }
-
     }
 }
