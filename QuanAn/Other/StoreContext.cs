@@ -9,7 +9,7 @@ namespace QuanAn
 {
     public class StoreContext : DbContext
     {
-        public StoreContext() : base(@"Server=DESKTOP-GN3V8MM\SQLEXPRESS;Database=Cafeteria;Trusted_Connection=True")
+        public StoreContext() : base(@"Server=DESKTOP-6J86EQ5\SQLEXPRESS;Database=Cafeteria;Trusted_Connection=True")
         {
 
         }      
@@ -20,6 +20,5 @@ namespace QuanAn
         public DbSet<Bill> Bills { get; set; }
         public DbSet<Detail> Details { get; set; }
         public DbSet<Account> Accounts { get; set; }
-
     }
 }

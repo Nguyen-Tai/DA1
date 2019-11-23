@@ -89,7 +89,7 @@
                 .ForeignKey("dbo.Food", t => t.Food_ID)
                 .Index(t => t.Bill_ID)
                 .Index(t => t.Food_ID);
-           
+            
             CreateTable(
                 "dbo.Food",
                 c => new

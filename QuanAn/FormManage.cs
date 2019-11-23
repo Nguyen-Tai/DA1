@@ -44,21 +44,56 @@ namespace QuanAn
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            FormCustomers f = new FormCustomers();
+            FormCustomer f = new FormCustomer();
             this.Hide();
             f.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormCustomers f = new FormCustomers();
+            FormCustomer f = new FormCustomer();
             this.Hide();
             f.ShowDialog();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+     
+
+        private void FormManage_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FoodManager f = new FoodManager();
+            this.Hide();
+            f.ShowDialog();
+        }
+
+        private void btnHoaDon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            FoodManager f = new FoodManager();
+            this.Hide();
+            f.ShowDialog();
+        }
+
+        private void btnDangNhap_Click(object sender, EventArgs e)
+        {
+            FormLoginManage f = new FormLoginManage();
+            this.Hide();
+            f.ShowDialog();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            FormLoginManage f = new FormLoginManage();
+            this.Hide();
+            f.ShowDialog();
         }
     }
 }

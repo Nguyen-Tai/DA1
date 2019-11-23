@@ -22,7 +22,8 @@ namespace QuanAn.BL
                                              t.Name,
                                              t.Price,
                                              t.Unit,
-                                             CategoryName=p.Name                                          
+                                             CategoryName=p.Name,
+                                             t.Image
                                          }).Distinct();
                 return list.ToList<dynamic>();
             }

@@ -45,6 +45,18 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0-preview3-19553-01\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -59,17 +71,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\BLBill.cs" />
     <Compile Include="BL\BLMenu.cs" />
-    <Compile Include="CafeteriaDataSet.Designer.cs">
+    <Compile Include="BL\BLDetails.cs" />
+    <Compile Include="CafeteriaBillReport.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CafeteriaDataSet.xsd</DependentUpon>
+      <DependentUpon>CafeteriaBillReport.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FormCustomers.cs">
+    <Compile Include="FoodManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCustomers.Designer.cs">
-      <DependentUpon>FormCustomers.cs</DependentUpon>
+    <Compile Include="FoodManager.Designer.cs">
+      <DependentUpon>FoodManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustomer.Designer.cs">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="FormEmployee.cs">
       <SubType>Form</SubType>
@@ -82,12 +102,6 @@
     </Compile>
     <Compile Include="FormFoodChoices.Designer.cs">
       <DependentUpon>FormFoodChoices.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormFoodManger.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormFoodManger.Designer.cs">
-      <DependentUpon>FormFoodManger.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -119,6 +133,18 @@
     <Compile Include="Migrations\201911220755176_ImageFood.designer.cs">
       <DependentUpon>201911220755176_ImageFood.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911221608186_addForeignkey.cs" />
+    <Compile Include="Migrations\201911221608186_addForeignkey.designer.cs">
+      <DependentUpon>201911221608186_addForeignkey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911230457293_StoreProc.cs" />
+    <Compile Include="Migrations\201911230457293_StoreProc.designer.cs">
+      <DependentUpon>201911230457293_StoreProc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911231206140_fixDB.cs" />
+    <Compile Include="Migrations\201911231206140_fixDB.designer.cs">
+      <DependentUpon>201911231206140_fixDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Bill.cs" />
@@ -131,17 +157,24 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Other\StoreContext.cs" />
-    <EmbeddedResource Include="FormCustomers.resx">
-      <DependentUpon>FormCustomers.cs</DependentUpon>
+    <Compile Include="Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="FoodManager.resx">
+      <DependentUpon>FoodManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomer.resx">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEmployee.resx">
       <DependentUpon>FormEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFoodChoices.resx">
       <DependentUpon>FormFoodChoices.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormFoodManger.resx">
-      <DependentUpon>FormFoodManger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -161,6 +194,15 @@
     <EmbeddedResource Include="Migrations\201911220755176_ImageFood.resx">
       <DependentUpon>201911220755176_ImageFood.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911221608186_addForeignkey.resx">
+      <DependentUpon>201911221608186_addForeignkey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911230457293_StoreProc.resx">
+      <DependentUpon>201911230457293_StoreProc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911231206140_fixDB.resx">
+      <DependentUpon>201911231206140_fixDB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -171,17 +213,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ReportBill.rdlc" />
-    <None Include="CafeteriaDataSet.xsc">
-      <DependentUpon>CafeteriaDataSet.xsd</DependentUpon>
+    <EmbeddedResource Include="Report.rdlc" />
+    <EmbeddedResource Include="Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="CafeteriaBillReport.xsc">
+      <DependentUpon>CafeteriaBillReport.xsd</DependentUpon>
     </None>
-    <None Include="CafeteriaDataSet.xsd">
+    <None Include="CafeteriaBillReport.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CafeteriaDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>CafeteriaBillReport.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="CafeteriaDataSet.xss">
-      <DependentUpon>CafeteriaDataSet.xsd</DependentUpon>
+    <None Include="CafeteriaBillReport.xss">
+      <DependentUpon>CafeteriaBillReport.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -320,7 +365,21 @@
   <ItemGroup>
     <None Include="Resources\BiaHeineken.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
