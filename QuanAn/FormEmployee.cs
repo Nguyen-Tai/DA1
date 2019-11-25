@@ -287,13 +287,9 @@ namespace QuanAn
 
         private void pictureBox3_Click_2(object sender, EventArgs e)
         {
-            // Khai báo biến traloi
-            DialogResult traloi;
-            // Hiện hộp thoại hỏi đáp
-            traloi = MessageBox.Show("Chắc không?", "Trả lời",
-            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            // Kiểm tra có nhắp chọn nút Ok không?
-            if (traloi == DialogResult.OK) this.Close();
+            FormLogin f = new FormLogin();
+            this.Hide();
+            f.ShowDialog();
         }
 
         private void pictureBox2_Click_2(object sender, EventArgs e)

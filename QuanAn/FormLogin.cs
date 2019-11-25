@@ -17,31 +17,33 @@ namespace QuanAn
             InitializeComponent();
         }
 
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (rbAdmin.Checked)
-            {
-                FormManage f1 = new FormManage();
-                this.Hide();
-                f1.ShowDialog();
-            }
-    
-        }
-
-        private void rbStaff_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (rbAdmin.Checked)
+            if (IsUser(txtUsername.Text,txtPassword.Text, rbAdmin.Checked))
             {
-                FormManage f1 = new FormManage();
-                this.Hide();
-                f1.ShowDialog();
+                if (rbAdmin.Checked)
+                {
+                    FormManage f1 = new FormManage();
+                    this.Hide();
+                    f1.ShowDialog();
+                }
+                if (rbEmployee.Checked)
+                {
+                    FormFoodChoices f1 = new FormFoodChoices();
+                    this.Hide();
+                    f1.ShowDialog();
+                }
             }
+        }
+        private bool IsUser(string username, string password, bool quyen)
+        {
+            StoreContext db = new StoreContext();
+            var q = (from p in db.Accounts
+                    where p.Username == username
+                    && p.Password == password && p.IsAdmin==quyen
+                    select p).SingleOrDefault();
+            if (q!=null) return true;
+            else return false;
         }
 
         private void pictureBox10_Click_1(object sender, EventArgs e)
@@ -49,7 +51,7 @@ namespace QuanAn
             // Khai báo biến traloi
             DialogResult traloi;
             // Hiện hộp thoại hỏi đáp
-            traloi = MessageBox.Show("Chắc không?", "Trả lời",
+            traloi = MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Trả lời",
             MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             // Kiểm tra có nhắp chọn nút Ok không?
             if (traloi == DialogResult.OK) this.Close();

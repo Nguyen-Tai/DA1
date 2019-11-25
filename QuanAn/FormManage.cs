@@ -19,13 +19,9 @@ namespace QuanAn
 
         private void pictureBox10_Click(object sender, EventArgs e)
         {
-            // Khai báo biến traloi
-            DialogResult traloi;
-            // Hiện hộp thoại hỏi đáp
-            traloi = MessageBox.Show("Chắc không?", "Trả lời",
-            MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            // Kiểm tra có nhắp chọn nút Ok không?
-            if (traloi == DialogResult.OK) this.Close();
+            FormLogin f = new FormLogin();
+            this.Hide();
+            f.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
