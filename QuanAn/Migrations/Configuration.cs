@@ -17,12 +17,19 @@
         protected override void Seed(StoreContext context)
         {
 
+            List<Employee> TempEmployee = new List<Employee>()
+            {
+                new Employee { ID = 1, Name = "Ngô Hoàng Minh Tâm", Address = "Quận Thủ Đức", DOB = Convert.ToDateTime("05/29/1995"), Phone = "03226767856", Sex = "Nam", Image = "", HireDate = Convert.ToDateTime("11/21/2019")},
+                new Employee { ID = 2, Name = "Đoàn Văn Long", Address = "Quận 1", DOB = Convert.ToDateTime("05/29/1997"), Phone = "03226767856", Sex = "Nam", Image = "", HireDate = Convert.ToDateTime("11/21/2019")},
+                new Employee { ID = 3, Name = "Trần Nguyên Tài", Address = "Quận 5", DOB = Convert.ToDateTime("05/29/1996"), Phone = "03226767856", Sex = "Nam", Image = "", HireDate = Convert.ToDateTime("11/21/2019")},
+            };
+            context.Employees.AddRange(TempEmployee);
+
             IList<Account> accounts = new List<Account>();
 
-            accounts.Add(new Account() { Username = "admin", Password = "admin1234", IsAdmin = true, Name = "Trần Nguyên Tài", DOB = Convert.ToDateTime("7/10/1999") });
-            accounts.Add(new Account() { Username = "minhtam", Password = "1234567890", IsAdmin = false, Name = "Minh Tâm", DOB = Convert.ToDateTime("12/10/1999"), Sex = "Nam" });
-            accounts.Add(new Account() { Username = "vanlong", Password = "1234567890", IsAdmin = false, Name = "Văn Long", DOB = Convert.ToDateTime("12/10/1999"), Sex = "Nam" });
-            accounts.Add(new Account() { Username = "nguyentai", Password = "1234567890", IsAdmin = false, Name = "Nguyên Tài", DOB = Convert.ToDateTime("10/27/1999"), Sex = "Nam" });
+            accounts.Add(new Account() { Username = "admin", Password = "admin1234", IsAdmin = true,Employee_ID=3 });
+            accounts.Add(new Account() { Username = "minhtam", Password = "1234567890", IsAdmin = false, Employee_ID = 1 });
+            accounts.Add(new Account() { Username = "vanlong", Password = "1234567890", IsAdmin = false,Employee_ID=2});
 
 
             context.Accounts.AddRange(accounts);
@@ -53,13 +60,7 @@
             context.Customers.AddRange(TempCustomer);
 
 
-            List<Employee> TempEmployee = new List<Employee>()
-            {
-                new Employee { ID = 1, Name = "Ngô Hoàng Minh Tâm", Address = "Quận Thủ Đức", DOB = Convert.ToDateTime("05/29/1995"), Phone = "03226767856", Sex = "Nam", Image = "", HireDate = Convert.ToDateTime("11/21/2019")},
-                new Employee { ID = 2, Name = "Đoàn Văn Long", Address = "Quận 1", DOB = Convert.ToDateTime("05/29/1997"), Phone = "03226767856", Sex = "Nam", Image = "", HireDate = Convert.ToDateTime("11/21/2019")},
-                new Employee { ID = 3, Name = "Trần Nguyên Tài", Address = "Quận 5", DOB = Convert.ToDateTime("05/29/1996"), Phone = "03226767856", Sex = "Nam", Image = "", HireDate = Convert.ToDateTime("11/21/2019")},
-            };
-            context.Employees.AddRange(TempEmployee);
+           
 
 
             //// Subject SeedData 

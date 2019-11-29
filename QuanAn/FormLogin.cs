@@ -12,6 +12,7 @@ namespace QuanAn
 {
     public partial class FormLogin : Form
     {
+        int EmployeeID;
         public FormLogin()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace QuanAn
                 }
                 if (rbEmployee.Checked)
                 {
-                    FormFoodChoices f1 = new FormFoodChoices();
+                    FormFoodChoices f1 = new FormFoodChoices(EmployeeID);
                     this.Hide();
                     f1.ShowDialog();
                 }
@@ -42,7 +43,11 @@ namespace QuanAn
                     where p.Username == username
                     && p.Password == password && p.IsAdmin==quyen
                     select p).SingleOrDefault();
-            if (q!=null) return true;
+            if (q != null)
+            {
+                EmployeeID = q.Employee_ID;
+                return true;
+            }
             else return false;
         }
 

@@ -26,12 +26,9 @@ namespace QuanAn.Models
         [Required]
         public bool IsAdmin { get; set; }
 
-        [DisplayName("Họ tên")]
-        [Required]
-        [MaxLength(50)]
-        public string Name { get; set; }
-        public DateTime DOB { get; set; }
-        public string Phone { get; set; }
-        public string Sex { get; set; }
+        public int Employee_ID { get; set; }
+
+        [ForeignKey("Employee_ID")]
+        public virtual Employee Employee { get; set; }
     }
 }

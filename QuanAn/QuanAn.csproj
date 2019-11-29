@@ -145,6 +145,22 @@
     <Compile Include="Migrations\201911231206140_fixDB.designer.cs">
       <DependentUpon>201911231206140_fixDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911281745355_addTotal.cs" />
+    <Compile Include="Migrations\201911281745355_addTotal.designer.cs">
+      <DependentUpon>201911281745355_addTotal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911281807101_fixAccount.cs" />
+    <Compile Include="Migrations\201911281807101_fixAccount.designer.cs">
+      <DependentUpon>201911281807101_fixAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911290501324_NullToTal.cs" />
+    <Compile Include="Migrations\201911290501324_NullToTal.designer.cs">
+      <DependentUpon>201911290501324_NullToTal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911290647069_Fix.cs" />
+    <Compile Include="Migrations\201911290647069_Fix.designer.cs">
+      <DependentUpon>201911290647069_Fix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Bill.cs" />
@@ -164,6 +180,12 @@
       <DependentUpon>Report.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="ThongKeDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongKeDoanhThu.Designer.cs">
+      <DependentUpon>ThongKeDoanhThu.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FoodManager.resx">
       <DependentUpon>FoodManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,6 +225,18 @@
     <EmbeddedResource Include="Migrations\201911231206140_fixDB.resx">
       <DependentUpon>201911231206140_fixDB.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911281745355_addTotal.resx">
+      <DependentUpon>201911281745355_addTotal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911281807101_fixAccount.resx">
+      <DependentUpon>201911281807101_fixAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911290501324_NullToTal.resx">
+      <DependentUpon>201911290501324_NullToTal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911290647069_Fix.resx">
+      <DependentUpon>201911290647069_Fix.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -216,6 +250,9 @@
     <EmbeddedResource Include="Report.rdlc" />
     <EmbeddedResource Include="Report.resx">
       <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKeDoanhThu.resx">
+      <DependentUpon>ThongKeDoanhThu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="CafeteriaBillReport.xsc">
       <DependentUpon>CafeteriaBillReport.xsd</DependentUpon>

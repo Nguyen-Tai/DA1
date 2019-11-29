@@ -36,10 +36,7 @@ namespace QuanAn
                              {
                                  Username = c.Username,
                                  Password = c.Password,
-                                 Name = c.Name,
-                                 Phone = c.Phone,
-                                 DOB = c.DOB,
-                                 Sex = c.Sex,
+                               
                                  IsAdmin = c.IsAdmin
                              };
                 dgvAcc.DataSource = result.ToList();
@@ -67,11 +64,9 @@ namespace QuanAn
                 {
                     var account = new Account();
                     account.Username = txtUserName.Text;
-                    account.Name = txtTen.Text;
-                    account.DOB = dtpDOB.Value.Date;
+                  
                     account.Password = txtPassword.Text;
-                    account.Phone = txtSDT.Text;
-                    account.Sex = (rdbNam.Checked) ? "Nam" : "Nữ";
+                 
                     account.IsAdmin = (rdbAdmin.Checked) ? true : false;
                     db.Accounts.Add(account);
                     db.SaveChanges();
@@ -103,10 +98,7 @@ namespace QuanAn
                                    select em).SingleOrDefault();
                     if (khQuery != null)
                     {
-                        khQuery.Name = txtTen.Text;
-                        khQuery.DOB = dtpDOB.Value.Date;
-                        khQuery.Phone = txtSDT.Text;
-                        khQuery.Sex = (rdbNam.Checked) ? "Nam" : "Nữ";
+                      
                         khQuery.IsAdmin = (rdbAdmin.Checked) ? true : false;
                         db.SaveChanges();
                         LoadData();

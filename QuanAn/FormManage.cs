@@ -91,5 +91,12 @@ namespace QuanAn
             this.Hide();
             f.ShowDialog();
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            ThongKeDoanhThu tk = new ThongKeDoanhThu();
+            this.Hide();
+            tk.ShowDialog();
+        }
     }
 }

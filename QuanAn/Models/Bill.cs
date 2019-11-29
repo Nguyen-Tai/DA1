@@ -15,7 +15,9 @@ namespace QuanAn.Models
         public int ID { get; set; }
         public DateTime BillDate { get; set; }
 
-        public int Customer_ID { get; set; }
+        public int? Total { get; set; }
+
+        public int? Customer_ID { get; set; }
 
         [ForeignKey("Customer_ID")]
         public virtual Customer Customer { get; set; }

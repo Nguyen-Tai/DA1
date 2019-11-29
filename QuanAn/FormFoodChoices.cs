@@ -13,10 +13,11 @@ namespace QuanAn
 {
     public partial class FormFoodChoices : Form
     {
-        int ID_Bill;
-        public FormFoodChoices()
+        int ID_Bill, EmployeeID;
+        public FormFoodChoices(int employeeID)
         {
             InitializeComponent();
+            this.EmployeeID = employeeID;
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)
@@ -129,7 +130,7 @@ namespace QuanAn
             this.Controls.Add(tab);
             tab.BringToFront();
             #endregion
-            ID_Bill= BLBill.AddBill();
+            ID_Bill= BLBill.AddBill(EmployeeID);
             dataGridView1.ReadOnly = true;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AllowUserToAddRows = false;
@@ -151,7 +152,6 @@ namespace QuanAn
                 dataGridView1.DataSource = BLBill.GetBill(ID_Bill);
                 dataGridView1.Columns["Price"].DefaultCellStyle.Format = "#,##0";
                 dataGridView1.Columns["Total"].DefaultCellStyle.Format = "#,##0";
-
             }
         }
         private void bochon_Click(object sender, EventArgs e)
