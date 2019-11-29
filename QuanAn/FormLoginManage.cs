@@ -214,8 +214,8 @@ namespace QuanAn
                 this.txtUserName.Text = dgvAcc.Rows[r].Cells["Username"].Value.ToString();
                 this.txtPassword.Text = dgvAcc.Rows[r].Cells["Password"].Value.ToString();
                 this.txtNVID.Text = dgvAcc.Rows[r].Cells["Employee_ID"].Value.ToString();
-                if (dgvAcc.Rows[r].Cells["IsAdmin"].Value.ToString() == "TRUE") rdbAdmin.Checked = true; else rdbAdmin.Checked = false;
-                if (dgvAcc.Rows[r].Cells["IsAdmin"].Value.ToString() == "FALSE") rdbEmployee.Checked = true; else rdbEmployee.Checked = false;
+                if (dgvAcc.Rows[r].Cells["IsAdmin"].Value.ToString() == "True") rdbAdmin.Checked = true; else rdbAdmin.Checked = false;
+                if (dgvAcc.Rows[r].Cells["IsAdmin"].Value.ToString() == "False") rdbEmployee.Checked = true; else rdbEmployee.Checked = false;
 
             }
             catch
@@ -256,6 +256,45 @@ namespace QuanAn
         private void txtUserName_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            if (rdbID.Checked) //tìm theo mã SV
+            {
+                using (StoreContext db = new StoreContext())
+                {
+                    
+                        var result = from c in db.Accounts
+                                     where c.Employee_ID.ToString().Contains(txtSearch.Text)
+                                     select new
+                                     {
+                                         Username = c.Username,
+                                         Password = c.Password,
+                                         IsAdmin = c.IsAdmin,
+                                         Employee_ID = c.Employee_ID
+                                     };
+                        dgvAcc.DataSource = result.ToList();
+                    
+                }
+            }
+            else  //tìm theo Họ Tên SV
+            {
+                using (StoreContext db = new StoreContext())
+                {
+                    var result = from c in db.Accounts
+                                 where c.Username.Contains(txtSearch.Text)
+                                 select new
+                                 {
+                                     Username = c.Username,
+                                     Password = c.Password,
+                                     IsAdmin = c.IsAdmin,
+                                     Employee_ID = c.Employee_ID
+                                 };
+                    dgvAcc.DataSource = result.ToList();
+                }
+            }
+            
         }
     }
 }

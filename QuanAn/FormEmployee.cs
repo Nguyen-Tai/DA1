@@ -239,7 +239,7 @@ namespace QuanAn
                 this.dtpHireDate.Text = dgvNV.Rows[r].Cells["HireDate"].Value.ToString();
                 if (dgvNV.Rows[r].Cells["Sex"].Value.ToString() == "Nam") rdbNam.Checked = true; else rdbNam.Checked = false;
                 if (dgvNV.Rows[r].Cells["Sex"].Value.ToString() == "Nữ") rdbNu.Checked = true; else rdbNu.Checked = false;
-                if (dgvNV.Rows[r].Cells["Image"].Value != "" /*|| dgvNV.Rows[r].Cells["Image"].Value != null*/)
+                if (dgvNV.Rows[r].Cells["Image"].Value != "")
                 {
                     this.picEmployee.Image = System.Drawing.Image.FromFile(dgvNV.Rows[r].Cells["Image"].Value.ToString());
                 }
@@ -297,6 +297,52 @@ namespace QuanAn
             FormManage f = new FormManage();
             this.Hide();
             f.ShowDialog();
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            if (rdbSDT.Checked) //tìm theo mã SV
+            {
+                using (StoreContext db = new StoreContext())
+                {
+
+                    var result = from c in db.Employees
+                                 where c.Phone.Contains(txtSearch.Text)
+                                 select new
+                                 {
+                                     ID = c.ID,
+                                     Name = c.Name,
+                                     Address = c.Address,
+                                     DOB = c.DOB,
+                                     Phone = c.Phone,
+                                     Sex = c.Sex,
+                                     HireDate = c.HireDate,
+                                     Image = c.Image
+                                 };
+                    dgvNV.DataSource = result.ToList();
+
+                }
+            }
+            else  //tìm theo Họ Tên SV
+            {
+                using (StoreContext db = new StoreContext())
+                {
+                    var result = from c in db.Employees
+                                 where c.Name.Contains(txtSearch.Text)
+                                 select new
+                                 {
+                                     ID = c.ID,
+                                     Name = c.Name,
+                                     Address = c.Address,
+                                     DOB = c.DOB,
+                                     Phone = c.Phone,
+                                     Sex = c.Sex,
+                                     HireDate = c.HireDate,
+                                     Image = c.Image
+                                 };
+                    dgvNV.DataSource = result.ToList();
+                }
+            }
         }
     }
 }

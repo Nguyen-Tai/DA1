@@ -36,5 +36,10 @@ namespace QuanAn
             }
             catch { }
         }
+
+        private void ThongKeDoanhThu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

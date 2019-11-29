@@ -61,5 +61,10 @@ namespace QuanAn
             // Kiểm tra có nhắp chọn nút Ok không?
             if (traloi == DialogResult.OK) this.Close();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

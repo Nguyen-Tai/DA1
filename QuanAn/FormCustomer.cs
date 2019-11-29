@@ -266,5 +266,74 @@ namespace QuanAn
             this.Hide();
             f.ShowDialog();
         }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            if (rdbTen.Checked) //tìm theo mã SV
+            {
+                using (StoreContext db = new StoreContext())
+                {
+
+                    var result = from c in db.Customers
+                                 where c.Name.Contains(txtSearch.Text)
+                                 select new
+                                 {
+                                     ID = c.ID,
+                                     Name = c.Name,
+                                     Address = c.Address,
+                                     DOB = c.DOB,
+                                     Phone = c.Phone,
+                                     Sex = c.Sex,
+                                     Wallet = c.Wallet,
+                                     Image = c.Image
+                                 };
+                    dgvKH.DataSource = result.ToList();
+
+                }
+            }
+            else  //tìm theo Họ Tên SV
+            {
+                using (StoreContext db = new StoreContext())
+                {
+                    var result = from c in db.Customers
+                                 where c.Phone.Contains(txtSearch.Text)
+                                 select new
+                                 {
+                                     ID = c.ID,
+                                     Name = c.Name,
+                                     Address = c.Address,
+                                     DOB = c.DOB,
+                                     Phone = c.Phone,
+                                     Sex = c.Sex,
+                                     Wallet = c.Wallet,
+                                     Image = c.Image
+                                 };
+                    dgvKH.DataSource = result.ToList();
+                }
+            }
+        }
+
+        private void dgvKH_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int r = dgvKH.CurrentCell.RowIndex;
+                this.txtMaKH.Text = dgvKH.Rows[r].Cells["ID"].Value.ToString();
+                this.txtHoTen.Text = dgvKH.Rows[r].Cells["Name"].Value.ToString();
+                this.dtpDOB.Text = dgvKH.Rows[r].Cells["DOB"].Value.ToString();
+                this.txtDiaChi.Text = dgvKH.Rows[r].Cells["Address"].Value.ToString();
+                this.txtSoDT.Text = dgvKH.Rows[r].Cells["Phone"].Value.ToString();
+                this.txtWallet.Text = dgvKH.Rows[r].Cells["Wallet"].Value.ToString();
+                if (dgvKH.Rows[r].Cells["Sex"].Value.ToString() == "Nam") rdbNam.Checked = true; else rdbNam.Checked = false;
+                if (dgvKH.Rows[r].Cells["Sex"].Value.ToString() == "Nữ") rdbNu.Checked = true; else rdbNu.Checked = false;
+                if (dgvKH.Rows[r].Cells["Image"].Value != "")
+                {
+                    this.picCustomer.Image = System.Drawing.Image.FromFile(dgvKH.Rows[r].Cells["Image"].Value.ToString());
+                }
+                else this.picCustomer.Image = null;
+            }
+            catch
+            { }
+        }
     }
 }

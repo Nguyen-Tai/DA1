@@ -294,5 +294,47 @@ namespace QuanAn
             this.Hide();
             f.ShowDialog();
         }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            if (rdbLoai.Checked) //tìm theo mã SV
+            {
+                using (StoreContext db = new StoreContext())
+                {
+
+                    var result = from c in db.Foods
+                                 where c.Category.Name.Contains(txtSearch.Text)
+                                 select new
+                                 {
+                                     ID = c.ID,
+                                     Name = c.Name,
+                                     Unit = c.Unit,
+                                     Price = c.Price,
+                                     Category_ID = c.Category.Name,
+                                     Image = c.Image
+                                 };
+                    dgvMA.DataSource = result.ToList();
+
+                }
+            }
+            else  //tìm theo Họ Tên SV
+            {
+                using (StoreContext db = new StoreContext())
+                {
+                    var result = from c in db.Foods
+                                 where c.Name.Contains(txtSearch.Text)
+                                 select new
+                                 {
+                                     ID = c.ID,
+                                     Name = c.Name,
+                                     Unit = c.Unit,
+                                     Price = c.Price,
+                                     Category_ID = c.Category.Name,
+                                     Image = c.Image
+                                 };
+                    dgvMA.DataSource = result.ToList();
+                }
+            }
+        }
     }
 }

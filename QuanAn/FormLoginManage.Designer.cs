@@ -32,6 +32,9 @@
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnChose = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtNVID = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.rdbEmployee = new System.Windows.Forms.RadioButton();
             this.rdbAdmin = new System.Windows.Forms.RadioButton();
@@ -42,6 +45,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvAcc = new System.Windows.Forms.DataGridView();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Employee_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
@@ -50,15 +57,8 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.rdbTen = new System.Windows.Forms.RadioButton();
-            this.rdbUser = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtNVID = new System.Windows.Forms.TextBox();
-            this.btnChose = new System.Windows.Forms.Button();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Employee_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rdbUsername = new System.Windows.Forms.RadioButton();
+            this.rdbID = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -74,7 +74,7 @@
             this.pictureBox11.ErrorImage = null;
             this.pictureBox11.Image = global::QuanAn.Properties.Resources.door_exit;
             this.pictureBox11.Location = new System.Drawing.Point(765, 26);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(33, 35);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -88,7 +88,7 @@
             this.pictureBox10.ErrorImage = null;
             this.pictureBox10.Image = global::QuanAn.Properties.Resources._1_power_off_on_shutdown_512;
             this.pictureBox10.Location = new System.Drawing.Point(802, 26);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(33, 35);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -113,6 +113,36 @@
             this.groupBox2.TabIndex = 66;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin Đăng nhập";
+            // 
+            // btnChose
+            // 
+            this.btnChose.Font = new System.Drawing.Font("UTM Bebas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChose.Location = new System.Drawing.Point(421, 109);
+            this.btnChose.Name = "btnChose";
+            this.btnChose.Size = new System.Drawing.Size(58, 30);
+            this.btnChose.TabIndex = 72;
+            this.btnChose.Text = "Chose";
+            this.btnChose.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("UTM Bebas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(255, 77);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 20);
+            this.label3.TabIndex = 71;
+            this.label3.Text = "Nhân Viên_ID";
+            // 
+            // txtNVID
+            // 
+            this.txtNVID.Font = new System.Drawing.Font("UTM Bebas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNVID.ForeColor = System.Drawing.Color.Black;
+            this.txtNVID.Location = new System.Drawing.Point(337, 74);
+            this.txtNVID.Name = "txtNVID";
+            this.txtNVID.Size = new System.Drawing.Size(142, 26);
+            this.txtNVID.TabIndex = 70;
             // 
             // groupBox4
             // 
@@ -233,6 +263,33 @@
             this.dgvAcc.TabIndex = 0;
             this.dgvAcc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcc_CellClick);
             // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "User Name";
+            this.Username.MinimumWidth = 6;
+            this.Username.Name = "Username";
+            // 
+            // Password
+            // 
+            this.Password.DataPropertyName = "Password";
+            this.Password.HeaderText = "PassWord";
+            this.Password.MinimumWidth = 6;
+            this.Password.Name = "Password";
+            // 
+            // IsAdmin
+            // 
+            this.IsAdmin.DataPropertyName = "IsAdmin";
+            this.IsAdmin.HeaderText = "Admin";
+            this.IsAdmin.MinimumWidth = 6;
+            this.IsAdmin.Name = "IsAdmin";
+            // 
+            // Employee_ID
+            // 
+            this.Employee_ID.DataPropertyName = "Employee_ID";
+            this.Employee_ID.HeaderText = "Nhân Viên ID";
+            this.Employee_ID.Name = "Employee_ID";
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.btnCapNhat);
@@ -242,8 +299,8 @@
             this.groupBox5.Controls.Add(this.btnEdit);
             this.groupBox5.Controls.Add(this.btnDel);
             this.groupBox5.Controls.Add(this.txtSearch);
-            this.groupBox5.Controls.Add(this.rdbTen);
-            this.groupBox5.Controls.Add(this.rdbUser);
+            this.groupBox5.Controls.Add(this.rdbUsername);
+            this.groupBox5.Controls.Add(this.rdbID);
             this.groupBox5.Font = new System.Drawing.Font("UTM Bebas", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(28, 80);
             this.groupBox5.Name = "groupBox5";
@@ -302,6 +359,7 @@
             this.btnTim.TabIndex = 9;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // btnEdit
             // 
@@ -332,92 +390,35 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Font = new System.Drawing.Font("UTM Bebas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(22, 47);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(163, 26);
+            this.txtSearch.Size = new System.Drawing.Size(163, 25);
             this.txtSearch.TabIndex = 2;
             // 
-            // rdbTen
+            // rdbUsername
             // 
-            this.rdbTen.AutoSize = true;
-            this.rdbTen.Font = new System.Drawing.Font("UTM Bebas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbTen.Location = new System.Drawing.Point(22, 119);
-            this.rdbTen.Name = "rdbTen";
-            this.rdbTen.Size = new System.Drawing.Size(107, 24);
-            this.rdbTen.TabIndex = 1;
-            this.rdbTen.TabStop = true;
-            this.rdbTen.Text = "Theo Username";
-            this.rdbTen.UseVisualStyleBackColor = true;
+            this.rdbUsername.AutoSize = true;
+            this.rdbUsername.Font = new System.Drawing.Font("UTM Bebas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbUsername.Location = new System.Drawing.Point(22, 119);
+            this.rdbUsername.Name = "rdbUsername";
+            this.rdbUsername.Size = new System.Drawing.Size(107, 24);
+            this.rdbUsername.TabIndex = 1;
+            this.rdbUsername.TabStop = true;
+            this.rdbUsername.Text = "Theo Username";
+            this.rdbUsername.UseVisualStyleBackColor = true;
             // 
-            // rdbUser
+            // rdbID
             // 
-            this.rdbUser.AutoSize = true;
-            this.rdbUser.Font = new System.Drawing.Font("UTM Bebas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbUser.Location = new System.Drawing.Point(22, 89);
-            this.rdbUser.Name = "rdbUser";
-            this.rdbUser.Size = new System.Drawing.Size(118, 24);
-            this.rdbUser.TabIndex = 0;
-            this.rdbUser.TabStop = true;
-            this.rdbUser.Text = "Theo ID Nhân Viên";
-            this.rdbUser.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("UTM Bebas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(255, 77);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 20);
-            this.label3.TabIndex = 71;
-            this.label3.Text = "Nhân Viên_ID";
-            // 
-            // txtNVID
-            // 
-            this.txtNVID.Font = new System.Drawing.Font("UTM Bebas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNVID.ForeColor = System.Drawing.Color.Black;
-            this.txtNVID.Location = new System.Drawing.Point(337, 74);
-            this.txtNVID.Name = "txtNVID";
-            this.txtNVID.Size = new System.Drawing.Size(142, 26);
-            this.txtNVID.TabIndex = 70;
-            // 
-            // btnChose
-            // 
-            this.btnChose.Font = new System.Drawing.Font("UTM Bebas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChose.Location = new System.Drawing.Point(421, 109);
-            this.btnChose.Name = "btnChose";
-            this.btnChose.Size = new System.Drawing.Size(58, 30);
-            this.btnChose.TabIndex = 72;
-            this.btnChose.Text = "Chose";
-            this.btnChose.UseVisualStyleBackColor = true;
-            // 
-            // Username
-            // 
-            this.Username.DataPropertyName = "Username";
-            this.Username.HeaderText = "User Name";
-            this.Username.MinimumWidth = 6;
-            this.Username.Name = "Username";
-            // 
-            // Password
-            // 
-            this.Password.DataPropertyName = "Password";
-            this.Password.HeaderText = "PassWord";
-            this.Password.MinimumWidth = 6;
-            this.Password.Name = "Password";
-            // 
-            // IsAdmin
-            // 
-            this.IsAdmin.DataPropertyName = "IsAdmin";
-            this.IsAdmin.HeaderText = "Admin";
-            this.IsAdmin.MinimumWidth = 6;
-            this.IsAdmin.Name = "IsAdmin";
-            // 
-            // Employee_ID
-            // 
-            this.Employee_ID.DataPropertyName = "Employee_ID";
-            this.Employee_ID.HeaderText = "Nhân Viên ID";
-            this.Employee_ID.Name = "Employee_ID";
+            this.rdbID.AutoSize = true;
+            this.rdbID.Font = new System.Drawing.Font("UTM Bebas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbID.Location = new System.Drawing.Point(22, 89);
+            this.rdbID.Name = "rdbID";
+            this.rdbID.Size = new System.Drawing.Size(118, 24);
+            this.rdbID.TabIndex = 0;
+            this.rdbID.TabStop = true;
+            this.rdbID.Text = "Theo ID Nhân Viên";
+            this.rdbID.UseVisualStyleBackColor = true;
             // 
             // FormLoginManage
             // 
@@ -433,7 +434,7 @@
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormLoginManage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLoginManage";
@@ -475,8 +476,8 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.RadioButton rdbTen;
-        private System.Windows.Forms.RadioButton rdbUser;
+        private System.Windows.Forms.RadioButton rdbUsername;
+        private System.Windows.Forms.RadioButton rdbID;
         private System.Windows.Forms.Button btnChose;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNVID;

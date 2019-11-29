@@ -66,7 +66,7 @@ namespace QuanAn
                     PictureBox pc = new PictureBox();
                     pc.Location = new Point(20, 10);
                     pc.Size = new Size(130, 120);
-                    if (listFood[j].Image == null) pc.Image = Image.FromFile(@"C:\Users\TNT\Desktop\image_186656.jpg");
+                    if (listFood[j].Image == null) pc.Image = Image.FromFile(@"C:\Users\Admin\Desktop\Food\bia-tiger-lon-01.jpg");
                     else pc.Image = Image.FromFile(listFood[j].Image);
 
                     pc.SizeMode = PictureBoxSizeMode.StretchImage;
