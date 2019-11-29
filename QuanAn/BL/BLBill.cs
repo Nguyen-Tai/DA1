@@ -22,11 +22,51 @@ namespace QuanAn.BL
                     BillDate = DateTime.Now,
                     Employee_ID = EmployeeID,
                     Total = 0,
-                   // Customer_ID = 1
                 };
                 ctx.Bills.Add(bill);
                 ctx.SaveChanges();
                 return bill.ID;
+            }
+        }
+        public static void ThanhToan(int ToTal,int Customer_ID)
+        {
+            using (var ctx = new StoreContext())
+            {
+                var dt = ctx.Customers.Where(x => x.ID == Customer_ID).FirstOrDefault();
+                if (dt != null)
+                {
+                    dt.Wallet = dt.Wallet-ToTal;
+                    ctx.SaveChanges();
+                }
+            }
+        }
+        public static void AddCustomerToBill(int CustomerID, int Bill_ID)
+        {
+            using (var ctx = new StoreContext())
+            {
+                var dt = ctx.Bills.Where(x => x.ID == Bill_ID).FirstOrDefault();
+                if (dt != null)
+                {
+                    dt.Customer_ID = CustomerID;
+                    ctx.SaveChanges();
+                }
+            }
+        }
+        public static int TotalByBill(int Bill_ID)
+        {
+            using (var ctx = new StoreContext())
+            {
+                var dt = ctx.Bills.Where(x => x.ID == Bill_ID).FirstOrDefault();
+                if (dt.Total == null) return 0;
+                return dt.Total.GetValueOrDefault();
+            }
+        }
+        public static int GetWallet(int CustomerID)
+        {
+            using (var ctx = new StoreContext())
+            {
+                var dt = ctx.Customers.Where(x => x.ID == CustomerID).FirstOrDefault();
+                return dt.Wallet;
             }
         }
         public static List<dynamic> LietKe(DateTime start,DateTime end)

@@ -359,3 +359,4 @@ C:\Users\TNT\Desktop\DA1\QuanAn\obj\Debug\QuanAn.Migrations.NullToTal.resources
 C:\Users\TNT\Desktop\DA1\QuanAn\obj\Debug\QuanAn.csprojAssemblyReference.cache
 C:\Users\TNT\Desktop\DA1\QuanAn\obj\Debug\QuanAn.ThongKeDoanhThu.resources
 C:\Users\TNT\Desktop\DA1\QuanAn\obj\Debug\QuanAn.Migrations.Fix.resources
+C:\Users\TNT\Desktop\DA1\QuanAn\obj\Debug\QuanAn.ChoseCustomer.resources

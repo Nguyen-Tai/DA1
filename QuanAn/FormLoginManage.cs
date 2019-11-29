@@ -23,9 +23,6 @@ namespace QuanAn
         {
             txtUserName.ResetText();
             txtPassword.ResetText();
-            txtTen.ResetText();
-            txtSDT.ResetText();
-            dtpDOB.ResetText();
         }
         void LoadData()
         {
@@ -35,9 +32,9 @@ namespace QuanAn
                              select new
                              {
                                  Username = c.Username,
-                                 Password = c.Password,
-                               
-                                 IsAdmin = c.IsAdmin
+                                 Password = c.Password,                               
+                                 IsAdmin = c.IsAdmin,
+                                 Employee_ID=c.Employee_ID
                              };
                 dgvAcc.DataSource = result.ToList();
             }
@@ -63,11 +60,10 @@ namespace QuanAn
                 using (StoreContext db = new StoreContext())
                 {
                     var account = new Account();
-                    account.Username = txtUserName.Text;
-                  
-                    account.Password = txtPassword.Text;
-                 
+                    account.Username = txtUserName.Text.Trim();
+                    account.Password = txtPassword.Text.Trim();                 
                     account.IsAdmin = (rdbAdmin.Checked) ? true : false;
+                    account.Employee_ID = Convert.ToInt32(txtNVID.Text.Trim());
                     db.Accounts.Add(account);
                     db.SaveChanges();
                 }
@@ -117,7 +113,6 @@ namespace QuanAn
                     btnDel.Enabled = true;
                     // Thông báo 
                     MessageBox.Show("Đã sửa xong!");
-
                 }
                 catch
                 {
@@ -137,6 +132,7 @@ namespace QuanAn
             btnThem.Enabled = false;
             btnEdit.Enabled = false;
             btnDel.Enabled = false;
+            btnChose.Enabled = true;
             txtUserName.Focus();
         }
 
@@ -149,6 +145,7 @@ namespace QuanAn
             btnThem.Enabled = true;
             btnEdit.Enabled = true;
             btnDel.Enabled = true;
+            btnChose.Enabled = true;
             // Không cho thao tác trên các nút Lưu / Hủy / Panel
             btnCapNhat.Enabled = false;
             btnHuy.Enabled = false;
@@ -168,7 +165,7 @@ namespace QuanAn
             // Đưa con trỏ đến TextField 
             txtUserName.Enabled = false;
             txtPassword.Enabled = false;
-            txtTen.Focus();
+            btnChose.Enabled = false;
         }
 
         private void btnDel_Click(object sender, EventArgs e)
@@ -216,13 +213,9 @@ namespace QuanAn
                 int r = dgvAcc.CurrentCell.RowIndex;
                 this.txtUserName.Text = dgvAcc.Rows[r].Cells["Username"].Value.ToString();
                 this.txtPassword.Text = dgvAcc.Rows[r].Cells["Password"].Value.ToString();
-                this.dtpDOB.Text = dgvAcc.Rows[r].Cells["DOB"].Value.ToString();
-                this.txtTen.Text = dgvAcc.Rows[r].Cells["Name"].Value.ToString();
-                this.txtSDT.Text = dgvAcc.Rows[r].Cells["Phone"].Value.ToString();
-                if (dgvAcc.Rows[r].Cells["Sex"].Value.ToString() == "Nam") rdbNam.Checked = true; else rdbNam.Checked = false;
-                if (dgvAcc.Rows[r].Cells["Sex"].Value.ToString() == "Nữ") rdbNu.Checked = true; else rdbNu.Checked = false;
-                if (dgvAcc.Rows[r].Cells["IsAdmin"].Value.ToString() == "true") rdbAdmin.Checked = true; else rdbAdmin.Checked = false;
-                if (dgvAcc.Rows[r].Cells["IsAdmin"].Value.ToString() == "false") rdbEmployee.Checked = true; else rdbEmployee.Checked = false;
+                this.txtNVID.Text = dgvAcc.Rows[r].Cells["Employee_ID"].Value.ToString();
+                if (dgvAcc.Rows[r].Cells["IsAdmin"].Value.ToString() == "TRUE") rdbAdmin.Checked = true; else rdbAdmin.Checked = false;
+                if (dgvAcc.Rows[r].Cells["IsAdmin"].Value.ToString() == "FALSE") rdbEmployee.Checked = true; else rdbEmployee.Checked = false;
 
             }
             catch
@@ -241,7 +234,13 @@ namespace QuanAn
 
         private void FormLoginManage_Load(object sender, EventArgs e)
         {
-
+            LoadData();
+            dgvAcc.ReadOnly = true;
+            dgvAcc.AllowUserToAddRows = false;
+            dgvAcc.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvAcc.BackgroundColor = Color.White;
+            dgvAcc.RowHeadersVisible = false;
+            dgvAcc.DefaultCellStyle.Font = new Font("UTM", 8, FontStyle.Regular);
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)

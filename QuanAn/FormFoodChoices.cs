@@ -152,6 +152,8 @@ namespace QuanAn
                 dataGridView1.DataSource = BLBill.GetBill(ID_Bill);
                 dataGridView1.Columns["Price"].DefaultCellStyle.Format = "#,##0";
                 dataGridView1.Columns["Total"].DefaultCellStyle.Format = "#,##0";
+                textBox2.Text=string.Format("{0:#,##0}", BLBill.TotalByBill(ID_Bill));
+
             }
         }
         private void bochon_Click(object sender, EventArgs e)
@@ -165,6 +167,7 @@ namespace QuanAn
                 BLDetails.DeleteDetail(Convert.ToInt32(b.Tag.ToString()), ID_Bill);
                 pr.BackColor = Color.DarkGray;
                 dataGridView1.DataSource = BLBill.GetBill(ID_Bill);
+                textBox2.Text = string.Format("{0:#,##0}", BLBill.TotalByBill(ID_Bill));
                 dataGridView1.Columns["Price"].DefaultCellStyle.Format = "#,##0";
                 dataGridView1.Columns["Total"].DefaultCellStyle.Format = "#,##0";
             }
@@ -183,10 +186,14 @@ namespace QuanAn
            
         }
 
-        private void btnThanhToan_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            Report rp = new Report(ID_Bill);
-            rp.ShowDialog();
+            ChoseCustomer cs = new ChoseCustomer(ID_Bill);
+            this.Hide();
+            cs.ShowDialog();
+            FormFoodChoices f = new FormFoodChoices(EmployeeID);
+            f.ShowDialog();
+            this.Close();
         }
     }
 }
