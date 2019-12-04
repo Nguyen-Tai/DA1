@@ -20,6 +20,7 @@ namespace QuanAn
         {
             InitializeComponent();
         }
+
         void resettext()
         {
             txtMaNV.ResetText();
@@ -49,7 +50,6 @@ namespace QuanAn
             }
 
         }
-
         private void btnThem_Click_1(object sender, EventArgs e)
         {
             Them = true;

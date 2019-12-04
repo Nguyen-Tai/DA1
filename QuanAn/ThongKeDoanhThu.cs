@@ -41,5 +41,19 @@ namespace QuanAn
         {
 
         }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            FormLogin f = new FormLogin();
+            this.Hide();
+            f.ShowDialog();
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+            FormManage f = new FormManage();
+            this.Hide();
+            f.ShowDialog();
+        }
     }
 }
