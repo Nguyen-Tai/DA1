@@ -39,5 +39,6 @@ namespace QuanAn.Models
 
         [DisplayName("Hình ảnh")]
         public string Image { get; set; }
+
     }
 }

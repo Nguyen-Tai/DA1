@@ -16,6 +16,7 @@ namespace QuanAn
     {
         bool Them;
         string imagepath;
+        Customer cus = new Customer();
         public FormCustomer()
         {
             InitializeComponent();
@@ -118,19 +119,14 @@ namespace QuanAn
         {
             if (Them)
             {
-                using (StoreContext db = new StoreContext())
-                {
-                    var customer = new Customer();
-                    customer.Name = txtHoTen.Text;
-                    customer.DOB = dtpDOB.Value.Date;
-                    customer.Address = txtDiaChi.Text;
-                    customer.Phone = txtSoDT.Text;
-                    customer.Sex = (rdbNam.Checked) ? "Nam" : "Nữ";
-                    customer.Wallet = Convert.ToInt32(txtWallet.Text);
-                    customer.Image = imagepath;
-                    db.Customers.Add(customer);
-                    db.SaveChanges();
-                }
+                cus.Name = txtHoTen.Text;
+                cus.DOB = dtpDOB.Value.Date;
+                cus.Address = txtDiaChi.Text;
+                cus.Phone = txtSoDT.Text;
+                cus.Sex = (rdbNam.Checked) ? "Nam" : "Nữ";
+                cus.Wallet = Convert.ToInt32(txtWallet.Text);
+                cus.Image = imagepath;
+                cus.AddData();
                 LoadData();
                 resettext();
                 //// Không cho thao tác trên các nút Lưu / Hủy
@@ -152,22 +148,15 @@ namespace QuanAn
                     // MaKH hiện hành 
                     int idEm = Convert.ToInt32(dgvKH.Rows[r].Cells[0].Value.ToString());
                     // Câu lệnh SQL 
-                    StoreContext db = new StoreContext();
-                    var khQuery = (from em in db.Customers
-                                   where em.ID == idEm
-                                   select em).SingleOrDefault();
-                    if (khQuery != null)
-                    {
-                        khQuery.Name = txtHoTen.Text;
-                        khQuery.DOB = dtpDOB.Value.Date;
-                        khQuery.Address = txtDiaChi.Text;
-                        khQuery.Phone = txtSoDT.Text;
-                        khQuery.Sex = (rdbNam.Checked) ? "Nam" : "Nữ";
-                        khQuery.Wallet = Convert.ToInt32(txtWallet.Text);
-                        khQuery.Image = imagepath;
-                        db.SaveChanges();
-                        LoadData();
-                    }
+                    cus.ID = idEm;
+                    cus.Name = txtHoTen.Text;
+                    cus.DOB = dtpDOB.Value.Date;
+                    cus.Address = txtDiaChi.Text;
+                    cus.Phone = txtSoDT.Text;
+                    cus.Sex = (rdbNam.Checked) ? "Nam" : "Nữ";
+                    cus.Wallet = Convert.ToInt32(txtWallet.Text);
+                    cus.Image = imagepath;
+                    cus.Update();
                     // Load lại dữ liệu trên DataGridView 
                     LoadData();
                     resettext();
@@ -219,13 +208,9 @@ namespace QuanAn
                 {
                     try
                     {
-                        StoreContext db = new StoreContext();
                         int idEm = Convert.ToInt32(txtMaKH.Text);
-                        var nvQuery = from em in db.Customers
-                                      where em.ID == idEm
-                                      select em;
-                        db.Customers.RemoveRange(nvQuery);
-                        db.SaveChanges();
+                        cus.ID = idEm;
+                        cus.DeleteData();
                         // Cập nhật lại DataGridView 
                         LoadData();
                         // Thông báo 
@@ -326,7 +311,7 @@ namespace QuanAn
                 this.txtWallet.Text = dgvKH.Rows[r].Cells["Wallet"].Value.ToString();
                 if (dgvKH.Rows[r].Cells["Sex"].Value.ToString() == "Nam") rdbNam.Checked = true; else rdbNam.Checked = false;
                 if (dgvKH.Rows[r].Cells["Sex"].Value.ToString() == "Nữ") rdbNu.Checked = true; else rdbNu.Checked = false;
-                if (dgvKH.Rows[r].Cells["Image"].Value != "")
+                if (dgvKH.Rows[r].Cells["Image"].Value != "" && dgvKH.Rows[r].Cells["Image"].Value != null)
                 {
                     this.picCustomer.Image = System.Drawing.Image.FromFile(dgvKH.Rows[r].Cells["Image"].Value.ToString());
                 }
@@ -334,6 +319,11 @@ namespace QuanAn
             }
             catch
             { }
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

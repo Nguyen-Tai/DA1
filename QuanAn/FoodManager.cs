@@ -16,6 +16,7 @@ namespace QuanAn
     {
         bool Them;
         string imagepath;
+        Food fd = new Food();
         public FoodManager()
         {
             InitializeComponent();
@@ -82,17 +83,12 @@ namespace QuanAn
         {
             if (Them)
             {
-                using (StoreContext db = new StoreContext())
-                {
-                    var food = new Food();
-                    food.Name = txtTen.Text;
-                    food.Unit = txtDonVi.Text;
-                    food.Price = Convert.ToInt32(txtDonGia.Text);
-                    food.Category_ID = Convert.ToInt32(cmbLoai.SelectedValue.ToString());
-                    food.Image = imagepath;
-                    db.Foods.Add(food);
-                    db.SaveChanges();
-                }
+                fd.Name = txtTen.Text;
+                fd.Unit = txtDonVi.Text;
+                fd.Price = Convert.ToInt32(txtDonGia.Text);
+                fd.Category_ID = Convert.ToInt32(cmbLoai.SelectedValue.ToString());
+                fd.Image = imagepath;
+                fd.AddData();
                 LoadData();
                 resettext();
                 //// Không cho thao tác trên các nút Lưu / Hủy
@@ -114,21 +110,15 @@ namespace QuanAn
                     int r = dgvMA.CurrentCell.RowIndex;
                     // MaKH hiện hành 
                     int idEm = Convert.ToInt32(dgvMA.Rows[r].Cells[0].Value.ToString());
-                    // Câu lệnh SQL 
-                    StoreContext db = new StoreContext();
-                    var fQuery = (from em in db.Foods
-                                  where em.ID == idEm
-                                  select em).SingleOrDefault();
-                    if (fQuery != null)
-                    {
-                        fQuery.Name = txtTen.Text;
-                        fQuery.Unit = txtDonVi.Text;
-                        fQuery.Price = Convert.ToInt32(txtDonGia.Text);
-                        fQuery.Category_ID = Convert.ToInt32(cmbLoai.SelectedValue.ToString());
-                        fQuery.Image = imagepath;
-                        db.SaveChanges();
-                        LoadData();
-                    }
+                    //Dùng phương thức trong Food
+                    fd.ID = idEm;
+                    fd.Name = txtTen.Text;
+                    fd.Unit = txtDonVi.Text;
+                    fd.Price = Convert.ToInt32(txtDonGia.Text);
+                    fd.Category_ID = Convert.ToInt32(cmbLoai.SelectedValue.ToString());
+                    fd.Image = imagepath;
+                    fd.Update();
+
                     // Load lại dữ liệu trên DataGridView 
                     LoadData();
                     resettext();
@@ -214,13 +204,9 @@ namespace QuanAn
                 {
                     try
                     {
-                        StoreContext db = new StoreContext();
                         int idEm = Convert.ToInt32(txtMaMA.Text);
-                        var nvQuery = from em in db.Foods
-                                      where em.ID == idEm
-                                      select em;
-                        db.Foods.RemoveRange(nvQuery);
-                        db.SaveChanges();
+                        fd.ID = idEm;
+                        fd.DeleteData();
                         // Cập nhật lại DataGridView 
                         LoadData();
                         // Thông báo 
@@ -261,7 +247,7 @@ namespace QuanAn
                 this.txtDonVi.Text = dgvMA.Rows[r].Cells["Unit"].Value.ToString();
                 this.txtDonGia.Text = dgvMA.Rows[r].Cells["Price"].Value.ToString();
                 this.cmbLoai.Text = dgvMA.Rows[r].Cells["Category_ID"].Value.ToString();
-                if (dgvMA.Rows[r].Cells["Image"].Value != null)
+                if (dgvMA.Rows[r].Cells["Image"].Value != null && dgvMA.Rows[r].Cells["Image"].Value != "")
                 {
                     this.pictureBox1.Image = System.Drawing.Image.FromFile(dgvMA.Rows[r].Cells["Image"].Value.ToString());
                 }

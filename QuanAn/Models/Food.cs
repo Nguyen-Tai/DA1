@@ -34,5 +34,54 @@ namespace QuanAn.Models
 
         [ForeignKey("Category_ID")]
         public virtual Category Category { get; set; }
+
+
+        public void AddData()
+        {
+            using (var ctx = new StoreContext())
+            {
+                var food = new Food();
+                food.Name = Name;
+                food.Unit = Unit;
+                food.Price = Price;
+                food.Category_ID = Category_ID;
+                food.Image = Image;
+                ctx.Foods.Add(food);
+                ctx.SaveChanges();
+            }
+        }
+
+        public void Update()
+        {
+            using (var ctx = new StoreContext())
+            {
+                var fQuery = (from fd in ctx.Foods
+                              where fd.ID == ID
+                              select fd).SingleOrDefault();
+                if (fQuery != null)
+                {
+                    fQuery.Name = Name;
+                    fQuery.Unit = Unit;
+                    fQuery.Price = Price;
+                    fQuery.Category_ID = Category_ID;
+                    fQuery.Image = Image;
+                    ctx.SaveChanges();
+                }
+            }               
+        }
+
+        public void DeleteData()
+        {
+            using (var ctx = new StoreContext())
+            {
+                var nvQuery = from fd in ctx.Foods
+                              where fd.ID == ID
+                              select fd;
+                ctx.Foods.RemoveRange(nvQuery);
+                ctx.SaveChanges();
+            }
+        }
+
+
     }
 }

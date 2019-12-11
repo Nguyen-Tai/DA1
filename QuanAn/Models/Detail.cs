@@ -24,5 +24,7 @@ namespace QuanAn.Models
 
         [ForeignKey("Food_ID")]
         public virtual Food Food { get; set; }
+
+
     }
 }

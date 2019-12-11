@@ -16,6 +16,7 @@ namespace QuanAn
     {
         bool Them;
         string imagepath;
+        Employee emp = new Employee();
         public FormEmployee()
         {
             InitializeComponent();
@@ -30,26 +31,7 @@ namespace QuanAn
             dtpDOB.ResetText();
             dtpHireDate.ResetText();
         }
-        void LoadData()
-        {
-            using (StoreContext db = new StoreContext())
-            {
-                var result = from c in db.Employees
-                             select new
-                             {
-                                 ID = c.ID,
-                                 Name = c.Name,
-                                 Address = c.Address,
-                                 DOB = c.DOB,
-                                 Phone = c.Phone,
-                                 Sex = c.Sex,
-                                 HireDate = c.HireDate,
-                                 Image = c.Image
-                             };
-                dgvNV.DataSource = result.ToList();
-            }
-
-        }
+        
         private void btnThem_Click_1(object sender, EventArgs e)
         {
             Them = true;
@@ -87,19 +69,15 @@ namespace QuanAn
         {
             if (Them)
             {
-                using (StoreContext db = new StoreContext())
-                {
-                    var employee = new Employee();
-                    employee.Name = txtHoTen.Text;
-                    employee.DOB = dtpDOB.Value.Date;
-                    employee.Address = txtDiaChi.Text;
-                    employee.Phone = txtSoDT.Text;
-                    employee.Sex = (rdbNam.Checked) ? "Nam" : "Nữ";
-                    employee.HireDate = dtpHireDate.Value.Date;
-                    employee.Image = imagepath;
-                    db.Employees.Add(employee);
-                    db.SaveChanges();
-                }
+                //Dùng phương thức trong Employee
+                emp.Name = txtHoTen.Text;
+                emp.DOB = dtpDOB.Value.Date;
+                emp.Address = txtDiaChi.Text;
+                emp.Phone = txtSoDT.Text;
+                emp.Sex = (rdbNam.Checked) ? "Nam" : "Nữ";
+                emp.HireDate = dtpHireDate.Value.Date;
+                emp.Image = imagepath;
+                emp.AddData();
                 LoadData();
                 resettext();
                 //// Không cho thao tác trên các nút Lưu / Hủy
@@ -120,23 +98,18 @@ namespace QuanAn
                     int r = dgvNV.CurrentCell.RowIndex;
                     // MaKH hiện hành 
                     int idEm = Convert.ToInt32(dgvNV.Rows[r].Cells[0].Value.ToString());
-                    // Câu lệnh SQL 
-                    StoreContext db = new StoreContext();
-                    var khQuery = (from em in db.Employees
-                                   where em.ID == idEm
-                                   select em).SingleOrDefault();
-                    if (khQuery != null)
-                    {
-                        khQuery.Name = txtHoTen.Text;
-                        khQuery.DOB = dtpDOB.Value.Date;
-                        khQuery.Address = txtDiaChi.Text;
-                        khQuery.Phone = txtSoDT.Text;
-                        khQuery.Sex = (rdbNam.Checked) ? "Nam" : "Nữ";
-                        khQuery.HireDate = dtpHireDate.Value.Date;
-                        khQuery.Image = imagepath;
-                        db.SaveChanges();
-                        LoadData();
-                    }
+
+                    //Dùng Phương thức trong Employee
+                    emp.ID = idEm;
+                    emp.Name = txtHoTen.Text;
+                    emp.DOB = dtpDOB.Value.Date;
+                    emp.Address = txtDiaChi.Text;
+                    emp.Phone = txtSoDT.Text;
+                    emp.Sex = (rdbNam.Checked) ? "Nam" : "Nữ";
+                    emp.HireDate = dtpHireDate.Value.Date;
+                    emp.Image = imagepath;
+                    emp.Update();
+
                     // Load lại dữ liệu trên DataGridView 
                     LoadData();
                     resettext();
@@ -189,13 +162,12 @@ namespace QuanAn
                 {
                     try
                     {
-                        StoreContext db = new StoreContext();
+                        //Dùng phương thức trong Employee
                         int idEm = Convert.ToInt32(txtMaNV.Text);
-                        var nvQuery = from em in db.Employees
-                                      where em.ID == idEm
-                                      select em;
-                        db.Employees.RemoveRange(nvQuery);
-                        db.SaveChanges();
+                        emp.ID = idEm;
+                        emp.DeleteData();
+
+
                         // Cập nhật lại DataGridView 
                         LoadData();
                         // Thông báo 
@@ -239,7 +211,7 @@ namespace QuanAn
                 this.dtpHireDate.Text = dgvNV.Rows[r].Cells["HireDate"].Value.ToString();
                 if (dgvNV.Rows[r].Cells["Sex"].Value.ToString() == "Nam") rdbNam.Checked = true; else rdbNam.Checked = false;
                 if (dgvNV.Rows[r].Cells["Sex"].Value.ToString() == "Nữ") rdbNu.Checked = true; else rdbNu.Checked = false;
-                if (dgvNV.Rows[r].Cells["Image"].Value != "")
+                if (dgvNV.Rows[r].Cells["Image"].Value != null && dgvNV.Rows[r].Cells["Image"].Value != "")
                 {
                     this.picEmployee.Image = System.Drawing.Image.FromFile(dgvNV.Rows[r].Cells["Image"].Value.ToString());
                 }
@@ -297,6 +269,27 @@ namespace QuanAn
             FormManage f = new FormManage();
             this.Hide();
             f.ShowDialog();
+        }
+
+        void LoadData()
+        {
+            using (StoreContext db = new StoreContext())
+            {
+                var result = from c in db.Employees
+                             select new
+                             {
+                                 ID = c.ID,
+                                 Name = c.Name,
+                                 Address = c.Address,
+                                 DOB = c.DOB,
+                                 Phone = c.Phone,
+                                 Sex = c.Sex,
+                                 HireDate = c.HireDate,
+                                 Image = c.Image
+                             };
+                dgvNV.DataSource = result.ToList();
+            }
+
         }
 
         private void btnTim_Click(object sender, EventArgs e)

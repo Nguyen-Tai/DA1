@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanAn.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace QuanAn
     public partial class FormLogin : Form
     {
         int EmployeeID;
+        Account acc = new Account();
         public FormLogin()
         {
             InitializeComponent();
@@ -20,7 +22,11 @@ namespace QuanAn
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (IsUser(txtUsername.Text,txtPassword.Text, rbAdmin.Checked))
+            acc.Username = txtUsername.Text;
+            acc.Password = txtPassword.Text;
+            acc.IsAdmin = rbAdmin.Checked;
+
+            if (acc.IsUser(ref EmployeeID))
             {
                 if (rbAdmin.Checked)
                 {
@@ -36,20 +42,20 @@ namespace QuanAn
                 }
             }
         }
-        private bool IsUser(string username, string password, bool quyen)
-        {
-            StoreContext db = new StoreContext();
-            var q = (from p in db.Accounts
-                    where p.Username == username
-                    && p.Password == password && p.IsAdmin==quyen
-                    select p).SingleOrDefault();
-            if (q != null)
-            {
-                EmployeeID = q.Employee_ID;
-                return true;
-            }
-            else return false;
-        }
+        //public static bool IsUser(string username, string password, bool quyen, ref int EmployeeID)
+        //{
+        //    StoreContext db = new StoreContext();
+        //    var q = (from p in db.Accounts
+        //             where p.Username == username
+        //             && p.Password == password && p.IsAdmin == quyen
+        //             select p).SingleOrDefault();
+        //    if (q != null)
+        //    {
+        //        EmployeeID = q.Employee_ID;
+        //        return true;
+        //    }
+        //    else return false;
+        //}
 
         private void pictureBox10_Click_1(object sender, EventArgs e)
         {

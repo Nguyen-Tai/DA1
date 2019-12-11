@@ -30,5 +30,24 @@ namespace QuanAn.Models
 
         [ForeignKey("Employee_ID")]
         public virtual Employee Employee { get; set; }
+
+        public bool IsUser(ref int EmployeeID)
+        {
+            using (var ctx = new StoreContext())
+            {
+                var q = (from p in ctx.Accounts
+                         where p.Username == Username
+                         && p.Password == Password && p.IsAdmin == IsAdmin
+                         select p).SingleOrDefault();
+                if (q != null)
+                {
+                    EmployeeID = q.Employee_ID;
+                    return true;
+                }
+                else return false;
+            }
+            
+        }
+
     }
 }

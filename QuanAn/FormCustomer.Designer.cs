@@ -595,6 +595,7 @@
             this.label17.Size = new System.Drawing.Size(335, 40);
             this.label17.TabIndex = 82;
             this.label17.Text = "Quản Lý Thông Tin Khách hàng";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // FormCustomer
             // 
