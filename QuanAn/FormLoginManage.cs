@@ -15,6 +15,7 @@ namespace QuanAn
     public partial class FormLoginManage : Form
     {
         bool Them;
+        Account acc = new Account();
         public FormLoginManage()
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace QuanAn
         {
             txtUserName.ResetText();
             txtPassword.ResetText();
+            txtNVID.ResetText();
         }
         void LoadData()
         {
@@ -57,16 +59,12 @@ namespace QuanAn
         {
             if (Them)
             {
-                using (StoreContext db = new StoreContext())
-                {
-                    var account = new Account();
-                    account.Username = txtUserName.Text.Trim();
-                    account.Password = txtPassword.Text.Trim();                 
-                    account.IsAdmin = (rdbAdmin.Checked) ? true : false;
-                    account.Employee_ID = Convert.ToInt32(txtNVID.Text.Trim());
-                    db.Accounts.Add(account);
-                    db.SaveChanges();
-                }
+
+                acc.Username = txtUserName.Text.Trim();
+                acc.Password = txtPassword.Text.Trim();
+                acc.IsAdmin = (rdbAdmin.Checked) ? true : false;
+                acc.Employee_ID = Convert.ToInt32(txtNVID.Text);
+                acc.AddData();
                 LoadData();
                 resettext();
                 //// Không cho thao tác trên các nút Lưu / Hủy
@@ -86,19 +84,13 @@ namespace QuanAn
                     // Thứ tự dòng hiện hành 
                     int r = dgvAcc.CurrentCell.RowIndex;
                     // MaKH hiện hành 
-                    String idEm = dgvAcc.Rows[r].Cells[0].Value.ToString();
-                    // Câu lệnh SQL 
-                    StoreContext db = new StoreContext();
-                    var khQuery = (from em in db.Accounts
-                                   where em.Username == idEm
-                                   select em).SingleOrDefault();
-                    if (khQuery != null)
-                    {
-                      
-                        khQuery.IsAdmin = (rdbAdmin.Checked) ? true : false;
-                        db.SaveChanges();
-                        LoadData();
-                    }
+                    String user = dgvAcc.Rows[r].Cells[0].Value.ToString();
+                    // Dùng phương thức trong Account
+                    acc.Username = user;
+                    acc.IsAdmin = (rdbAdmin.Checked) ? true : false;
+                    acc.Update();
+
+                    
                     // Load lại dữ liệu trên DataGridView 
                     LoadData();
                     resettext();
@@ -180,15 +172,13 @@ namespace QuanAn
                 // Kiểm tra có nhắp chọn nút Ok không?           
                 if (traloi == DialogResult.Yes)
                 {
+                    
                     try
-                    {
-                        StoreContext db = new StoreContext();
-                        string idEm = txtUserName.Text;
-                        var nvQuery = from em in db.Accounts
-                                      where em.Username == idEm
-                                      select em;
-                        db.Accounts.RemoveRange(nvQuery);
-                        db.SaveChanges();
+                    {                        
+                        string user = txtUserName.Text;
+                        acc.Username = user;
+                        acc.DeleteData();
+                        
                         // Cập nhật lại DataGridView 
                         LoadData();
                         // Thông báo 
@@ -241,6 +231,7 @@ namespace QuanAn
             dgvAcc.BackgroundColor = Color.White;
             dgvAcc.RowHeadersVisible = false;
             dgvAcc.DefaultCellStyle.Font = new Font("UTM", 8, FontStyle.Regular);
+            btnCapNhat.Enabled = false;
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)

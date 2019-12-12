@@ -49,5 +49,50 @@ namespace QuanAn.Models
             
         }
 
+        public void AddData()
+        {
+            using (var ctx = new StoreContext())
+            {
+                var account = new Account();
+                account.Username = Username;
+                account.Password = Password;
+                account.IsAdmin = IsAdmin;
+                account.Employee_ID = Employee_ID;
+                ctx.Accounts.Add(account);
+                ctx.SaveChanges();
+            }
+        }
+
+        public void Update()
+        {
+            using (var ctx = new StoreContext())
+            {
+                var khQuery = (from ac in ctx.Accounts
+                               where ac.Username == Username
+                               select ac).SingleOrDefault();
+                if (khQuery != null)
+                {
+
+                    khQuery.IsAdmin = IsAdmin;
+                    ctx.SaveChanges();
+                }
+            }
+                
+
+        }
+
+        public void DeleteData()
+        {
+            using (var ctx = new StoreContext())
+            {
+                var nvQuery = from ac in ctx.Accounts
+                              where ac.Username == Username
+                              select ac;
+                ctx.Accounts.RemoveRange(nvQuery);
+                ctx.SaveChanges();
+            }
+
+        }
+
     }
 }
