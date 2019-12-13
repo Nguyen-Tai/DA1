@@ -12,6 +12,15 @@ namespace QuanAn.Models
     public class Employee : Person
     {
         public DateTime HireDate { get; set; }
+
+
+        public List<Employee> LoadData()
+        {
+            using (var ctx = new StoreContext())
+            {
+                return ctx.Employees.ToList();
+            }
+        }
         public void AddData()
         {
             using (var ctx = new StoreContext())
@@ -48,7 +57,7 @@ namespace QuanAn.Models
                     ctx.SaveChanges();
                 }
             }
-                
+
         }
 
         public void DeleteData()
@@ -61,10 +70,48 @@ namespace QuanAn.Models
                 ctx.Employees.RemoveRange(nvQuery);
                 ctx.SaveChanges();
             }
-               
+
         }
 
-
-        
+        public List<dynamic> FindSDT()
+        {
+            using (var ctx = new StoreContext())
+            {
+                var list = (from b in ctx.Employees
+                            where b.Phone.Contains(Phone)
+                            select new
+                            {
+                                b.ID,
+                                b.Name,
+                                b.Address,
+                                b.DOB,
+                                b.Phone,
+                                b.Sex,
+                                b.HireDate,
+                                b.Image
+                            });
+                return list.ToList<dynamic>();
+            }
+        }
+        public List<dynamic> FindName()
+        {
+            using (var ctx = new StoreContext())
+            {
+                var list = (from b in ctx.Employees
+                            where b.Name.Contains(Name)
+                            select new
+                            {
+                                b.ID,
+                                b.Name,
+                                b.Address,
+                                b.DOB,
+                                b.Phone,
+                                b.Sex,
+                                b.HireDate,
+                                b.Image
+                            });
+                return list.ToList<dynamic>();
+            }
+        }
     }
 }

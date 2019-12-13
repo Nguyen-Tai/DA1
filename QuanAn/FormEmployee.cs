@@ -78,7 +78,7 @@ namespace QuanAn
                 emp.HireDate = dtpHireDate.Value.Date;
                 emp.Image = imagepath;
                 emp.AddData();
-                LoadData();
+                dgvNV.DataSource = emp.LoadData();
                 resettext();
                 //// Không cho thao tác trên các nút Lưu / Hủy
                 btnCapNhat.Enabled = false;
@@ -94,10 +94,8 @@ namespace QuanAn
             {
                 try
                 {
-                    // Thứ tự dòng hiện hành 
-                    int r = dgvNV.CurrentCell.RowIndex;
                     // MaKH hiện hành 
-                    int idEm = Convert.ToInt32(dgvNV.Rows[r].Cells[0].Value.ToString());
+                    int idEm = Convert.ToInt32(txtMaNV.Text);
 
                     //Dùng Phương thức trong Employee
                     emp.ID = idEm;
@@ -111,7 +109,7 @@ namespace QuanAn
                     emp.Update();
 
                     // Load lại dữ liệu trên DataGridView 
-                    LoadData();
+                    dgvNV.DataSource = emp.LoadData();
                     resettext();
                     groupBox1.Enabled = false;
                     picEmployee.Image = null;
@@ -125,12 +123,12 @@ namespace QuanAn
                     // Thông báo 
                     MessageBox.Show("Đã sửa xong!");
 
-                }
-                catch
-                {
-                    MessageBox.Show("Không sửa được. Lỗi rồi!");
-                }
             }
+                catch
+            {
+                MessageBox.Show("Không sửa được. Lỗi rồi!");
+            }
+        }
         }
 
         private void btnHuy_Click_1(object sender, EventArgs e)
@@ -169,7 +167,7 @@ namespace QuanAn
 
 
                         // Cập nhật lại DataGridView 
-                        LoadData();
+                        dgvNV.DataSource = emp.LoadData();
                         // Thông báo 
                         MessageBox.Show("Đã xóa xong!");
                     }
@@ -226,7 +224,7 @@ namespace QuanAn
             dgvNV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvNV.AllowUserToAddRows = false;
             dgvNV.ReadOnly = true;
-            LoadData();
+            dgvNV.DataSource = emp.LoadData();
             //// Không cho thao tác trên các nút Lưu / Hủy
             btnCapNhat.Enabled = false;
             btnHuy.Enabled = false;
@@ -296,45 +294,16 @@ namespace QuanAn
         {
             if (rdbSDT.Checked) //tìm theo mã SV
             {
-                using (StoreContext db = new StoreContext())
-                {
 
-                    var result = from c in db.Employees
-                                 where c.Phone.Contains(txtSearch.Text)
-                                 select new
-                                 {
-                                     ID = c.ID,
-                                     Name = c.Name,
-                                     Address = c.Address,
-                                     DOB = c.DOB,
-                                     Phone = c.Phone,
-                                     Sex = c.Sex,
-                                     HireDate = c.HireDate,
-                                     Image = c.Image
-                                 };
-                    dgvNV.DataSource = result.ToList();
+                emp.Phone = txtSearch.Text;
+                dgvNV.DataSource = emp.FindSDT();
 
-                }
             }
             else  //tìm theo Họ Tên SV
             {
-                using (StoreContext db = new StoreContext())
-                {
-                    var result = from c in db.Employees
-                                 where c.Name.Contains(txtSearch.Text)
-                                 select new
-                                 {
-                                     ID = c.ID,
-                                     Name = c.Name,
-                                     Address = c.Address,
-                                     DOB = c.DOB,
-                                     Phone = c.Phone,
-                                     Sex = c.Sex,
-                                     HireDate = c.HireDate,
-                                     Image = c.Image
-                                 };
-                    dgvNV.DataSource = result.ToList();
-                }
+
+                emp.Name = txtSearch.Text;
+                dgvNV.DataSource = emp.FindName();
             }
         }
     }
