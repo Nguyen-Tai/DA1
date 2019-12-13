@@ -101,5 +101,61 @@ namespace QuanAn.Models
                 return list.ToList<dynamic>();
             }
         }
+
+        public  List<dynamic> LoadData()
+        {
+            using (var ctx = new StoreContext())
+            {
+                var result = from c in ctx.Foods
+                             select new
+                             {
+                                 ID = c.ID,
+                                 Name = c.Name,
+                                 Unit = c.Unit,
+                                 Price = c.Price,
+                                 Category_ID = c.Category.Name,
+                                 Image = c.Image
+                             };
+                return result.ToList<dynamic>();
+            }
+        }
+
+        public List<dynamic> FindTypeName(string CategoryName)
+        {
+            using (var ctx = new StoreContext())
+            {
+                var list = (from b in ctx.Foods
+                            where b.Category.Name.Contains(CategoryName)
+                            select new
+                            {
+                                b.ID,
+                                b.Name,
+                                b.Unit,
+                                b.Price,
+                                Category_ID = b.Category.Name,
+                                b.Image
+                            });
+                return list.ToList<dynamic>();
+            }
+        }
+        public List<dynamic> FindFoodName()
+        {
+            using (var ctx = new StoreContext())
+            {
+                var list = (from b in ctx.Foods
+                            where b.Name.Contains(Name)
+                            select new
+                            {
+                                b.ID,
+                                b.Name,
+                                b.Unit,
+                                b.Price,
+                                Category_ID = b.Category.Name,
+                                b.Image
+                            });
+                return list.ToList<dynamic>();
+            }
+        }
+
     }
 }

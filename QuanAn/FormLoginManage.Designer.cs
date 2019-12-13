@@ -32,7 +32,6 @@
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnChose = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNVID = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -98,7 +97,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnChose);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtNVID);
             this.groupBox2.Controls.Add(this.groupBox4);
@@ -113,16 +111,6 @@
             this.groupBox2.TabIndex = 66;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin Đăng nhập";
-            // 
-            // btnChose
-            // 
-            this.btnChose.Font = new System.Drawing.Font("UTM Bebas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChose.Location = new System.Drawing.Point(421, 109);
-            this.btnChose.Name = "btnChose";
-            this.btnChose.Size = new System.Drawing.Size(58, 30);
-            this.btnChose.TabIndex = 72;
-            this.btnChose.Text = "Chose";
-            this.btnChose.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -478,7 +466,6 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.RadioButton rdbUsername;
         private System.Windows.Forms.RadioButton rdbID;
-        private System.Windows.Forms.Button btnChose;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNVID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;

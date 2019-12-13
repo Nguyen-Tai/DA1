@@ -65,7 +65,7 @@ namespace QuanAn
                 acc.IsAdmin = (rdbAdmin.Checked) ? true : false;
                 acc.Employee_ID = Convert.ToInt32(txtNVID.Text);
                 acc.AddData();
-                LoadData();
+                dgvAcc.DataSource = acc.LoadData();
                 resettext();
                 //// Không cho thao tác trên các nút Lưu / Hủy
                 btnCapNhat.Enabled = false;
@@ -81,18 +81,18 @@ namespace QuanAn
             {
                 try
                 {
-                    // Thứ tự dòng hiện hành 
-                    int r = dgvAcc.CurrentCell.RowIndex;
-                    // MaKH hiện hành 
-                    String user = dgvAcc.Rows[r].Cells[0].Value.ToString();
+
                     // Dùng phương thức trong Account
-                    acc.Username = user;
+                    acc.Username = txtUserName.Text;
                     acc.IsAdmin = (rdbAdmin.Checked) ? true : false;
+                    acc.Password = txtPassword.Text;
+                    acc.Employee_ID = Convert.ToInt32(txtNVID.Text);
                     acc.Update();
 
-                    
+
                     // Load lại dữ liệu trên DataGridView 
-                    LoadData();
+
+                    dgvAcc.DataSource = acc.LoadData();
                     resettext();
                     groupBox2.Enabled = false;
 
@@ -124,7 +124,6 @@ namespace QuanAn
             btnThem.Enabled = false;
             btnEdit.Enabled = false;
             btnDel.Enabled = false;
-            btnChose.Enabled = true;
             txtUserName.Focus();
         }
 
@@ -137,7 +136,6 @@ namespace QuanAn
             btnThem.Enabled = true;
             btnEdit.Enabled = true;
             btnDel.Enabled = true;
-            btnChose.Enabled = true;
             // Không cho thao tác trên các nút Lưu / Hủy / Panel
             btnCapNhat.Enabled = false;
             btnHuy.Enabled = false;
@@ -157,7 +155,6 @@ namespace QuanAn
             // Đưa con trỏ đến TextField 
             txtUserName.Enabled = false;
             txtPassword.Enabled = false;
-            btnChose.Enabled = false;
         }
 
         private void btnDel_Click(object sender, EventArgs e)
@@ -178,9 +175,10 @@ namespace QuanAn
                         string user = txtUserName.Text;
                         acc.Username = user;
                         acc.DeleteData();
-                        
+
                         // Cập nhật lại DataGridView 
-                        LoadData();
+
+                        dgvAcc.DataSource = acc.LoadData();
                         // Thông báo 
                         MessageBox.Show("Đã xóa xong!");
                     }
@@ -224,13 +222,15 @@ namespace QuanAn
 
         private void FormLoginManage_Load(object sender, EventArgs e)
         {
-            LoadData();
+
+            dgvAcc.DataSource = acc.LoadData();
             dgvAcc.ReadOnly = true;
             dgvAcc.AllowUserToAddRows = false;
             dgvAcc.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvAcc.BackgroundColor = Color.White;
             dgvAcc.RowHeadersVisible = false;
             dgvAcc.DefaultCellStyle.Font = new Font("UTM", 8, FontStyle.Regular);
+            groupBox2.Enabled = false;
             btnCapNhat.Enabled = false;
         }
 
@@ -253,39 +253,29 @@ namespace QuanAn
         {
             if (rdbID.Checked) //tìm theo mã SV
             {
-                using (StoreContext db = new StoreContext())
+
+                if(txtSearch.Text =="")
                 {
-                    
-                        var result = from c in db.Accounts
-                                     where c.Employee_ID.ToString().Contains(txtSearch.Text)
-                                     select new
-                                     {
-                                         Username = c.Username,
-                                         Password = c.Password,
-                                         IsAdmin = c.IsAdmin,
-                                         Employee_ID = c.Employee_ID
-                                     };
-                        dgvAcc.DataSource = result.ToList();
-                    
+                    dgvAcc.DataSource = acc.LoadData();
                 }
+                else
+                {
+                    acc.Employee_ID = Convert.ToInt32(txtSearch.Text);
+                    dgvAcc.DataSource = acc.FindID();
+                }
+                
             }
-            else  //tìm theo Họ Tên SV
-            {
-                using (StoreContext db = new StoreContext())
-                {
-                    var result = from c in db.Accounts
-                                 where c.Username.Contains(txtSearch.Text)
-                                 select new
-                                 {
-                                     Username = c.Username,
-                                     Password = c.Password,
-                                     IsAdmin = c.IsAdmin,
-                                     Employee_ID = c.Employee_ID
-                                 };
-                    dgvAcc.DataSource = result.ToList();
-                }
+            else  
+            {                
+                acc.Username = txtSearch.Text;
+                dgvAcc.DataSource = acc.FindUserName();
             }
             
+        }
+
+        private void btnChose_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

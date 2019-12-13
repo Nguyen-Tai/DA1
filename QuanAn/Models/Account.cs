@@ -72,7 +72,8 @@ namespace QuanAn.Models
                                select ac).SingleOrDefault();
                 if (khQuery != null)
                 {
-
+                    khQuery.Password = Password;
+                    khQuery.Employee_ID = Employee_ID;
                     khQuery.IsAdmin = IsAdmin;
                     ctx.SaveChanges();
                 }
@@ -92,6 +93,56 @@ namespace QuanAn.Models
                 ctx.SaveChanges();
             }
 
+        }
+
+        public List<dynamic> LoadData()
+        {
+            using (var ctx = new StoreContext())
+            {
+                var result = from c in ctx.Accounts
+                             select new
+                             {
+                                 Username = c.Username,
+                                 Password = c.Password,
+                                 IsAdmin = c.IsAdmin,
+                                 Employee_ID = c.Employee_ID
+                             };
+                return result.ToList<dynamic>();
+            }
+        }
+
+        public List<dynamic> FindUserName()
+        {
+            using (var ctx = new StoreContext())
+            {
+                var list = (from b in ctx.Accounts
+                            where b.Username.Contains(Username)
+                            select new
+                            {
+                                b.Username,
+                                b.Password,
+                                b.IsAdmin,
+                                b.Employee_ID,
+                            });
+                return list.ToList<dynamic>();
+            }
+        }
+
+        public List<dynamic> FindID()
+        {
+            using (var ctx = new StoreContext())
+            {
+                var list = (from b in ctx.Accounts
+                            where b.Employee_ID == Employee_ID
+                            select new
+                            {
+                                b.Username,
+                                b.Password,
+                                b.IsAdmin,
+                                b.Employee_ID,
+                            });
+                return list.ToList<dynamic>();
+            }
         }
 
     }
