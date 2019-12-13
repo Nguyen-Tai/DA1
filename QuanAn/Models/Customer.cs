@@ -50,7 +50,6 @@ namespace QuanAn.Models
             }
 
         }
-
         public void DeleteData()
         {
             using (var ctx = new StoreContext())
@@ -62,6 +61,74 @@ namespace QuanAn.Models
                 ctx.SaveChanges();
             }
 
+        }
+        public static int GetWallet(int CustomerID)
+        {
+            using (var ctx = new StoreContext())
+            {
+                var dt = ctx.Customers.Where(x => x.ID == CustomerID).FirstOrDefault();
+                return dt.Wallet;
+            }
+        }     
+        public static List<dynamic> LoadData()
+        {
+            using (StoreContext db = new StoreContext())
+            {
+                var result = from c in db.Customers
+                             select new
+                             {
+                                 ID = c.ID,
+                                 Name = c.Name,
+                                 Address = c.Address,
+                                 DOB = c.DOB,
+                                 Phone = c.Phone,
+                                 Sex = c.Sex,
+                                 Wallet = c.Wallet,
+                                 Image = c.Image
+                             };
+                return result.ToList<dynamic>();
+            }
+        }
+
+        public List<dynamic> FindName()
+        {
+            using (var ctx = new StoreContext())
+            {
+                var list = (from b in ctx.Customers
+                            where b.Name.Contains(Name)
+                            select new
+                            {
+                                b.ID,
+                                b.Name,
+                               b.Address,
+                                b.DOB,
+                               b.Phone,
+                               b.Sex,
+                               b.Wallet,
+                               b.Image
+                            });
+                return list.ToList<dynamic>();
+            }
+        }
+        public List<dynamic> FindSDT()
+        {
+            using (var ctx = new StoreContext())
+            {
+                var list = (from b in ctx.Customers
+                            where b.Phone.Contains(Phone)
+                            select new
+                            {
+                                b.ID,
+                                b.Name,
+                                b.Address,
+                                b.DOB,
+                                b.Phone,
+                                b.Sex,
+                                b.Wallet,
+                                b.Image
+                            });
+                return list.ToList<dynamic>();
+            }
         }
     }
 }

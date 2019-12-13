@@ -31,32 +31,13 @@ namespace QuanAn
             dtpDOB.ResetText();
             txtWallet.ResetText();
         }
-        void LoadData()
-        {
-            using (StoreContext db = new StoreContext())
-            {
-                var result = from c in db.Customers
-                             select new
-                             {
-                                 ID = c.ID,
-                                 Name = c.Name,
-                                 Address = c.Address,
-                                 DOB = c.DOB,
-                                 Phone = c.Phone,
-                                 Sex = c.Sex,
-                                 Wallet = c.Wallet,
-                                 Image = c.Image
-                             };
-                dgvKH.DataSource = result.ToList();
-            }
-
-        }
+       
         private void FormCustomer_Load(object sender, EventArgs e)
         {
             dgvKH.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvKH.AllowUserToAddRows = false;
             dgvKH.ReadOnly = true;
-            LoadData();
+            dgvKH.DataSource = Customer.LoadData();
             //// Không cho thao tác trên các nút Lưu / Hủy
             btnCapNhat.Enabled = false;
             btnHuy.Enabled = false;
@@ -127,7 +108,7 @@ namespace QuanAn
                 cus.Wallet = Convert.ToInt32(txtWallet.Text);
                 cus.Image = imagepath;
                 cus.AddData();
-                LoadData();
+                dgvKH.DataSource = Customer.LoadData();
                 resettext();
                 //// Không cho thao tác trên các nút Lưu / Hủy
                 btnCapNhat.Enabled = false;
@@ -158,7 +139,7 @@ namespace QuanAn
                     cus.Image = imagepath;
                     cus.Update();
                     // Load lại dữ liệu trên DataGridView 
-                    LoadData();
+                    dgvKH.DataSource = Customer.LoadData();
                     resettext();
                     groupBox1.Enabled = false;
                     picCustomer.Image = null;
@@ -212,7 +193,7 @@ namespace QuanAn
                         cus.ID = idEm;
                         cus.DeleteData();
                         // Cập nhật lại DataGridView 
-                        LoadData();
+                        dgvKH.DataSource = Customer.LoadData();
                         // Thông báo 
                         MessageBox.Show("Đã xóa xong!");
                     }
@@ -254,47 +235,17 @@ namespace QuanAn
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            if (rdbTen.Checked) //tìm theo mã SV
+            if (rdbTen.Checked) //tìm Name
             {
-                using (StoreContext db = new StoreContext())
-                {
-
-                    var result = from c in db.Customers
-                                 where c.Name.Contains(txtSearch.Text)
-                                 select new
-                                 {
-                                     ID = c.ID,
-                                     Name = c.Name,
-                                     Address = c.Address,
-                                     DOB = c.DOB,
-                                     Phone = c.Phone,
-                                     Sex = c.Sex,
-                                     Wallet = c.Wallet,
-                                     Image = c.Image
-                                 };
-                    dgvKH.DataSource = result.ToList();
-
-                }
+               
+                cus.Name = txtSearch.Text;
+                dgvKH.DataSource = cus.FindName();
             }
-            else  //tìm theo Họ Tên SV
+            else  //tìm theo Phone
             {
-                using (StoreContext db = new StoreContext())
-                {
-                    var result = from c in db.Customers
-                                 where c.Phone.Contains(txtSearch.Text)
-                                 select new
-                                 {
-                                     ID = c.ID,
-                                     Name = c.Name,
-                                     Address = c.Address,
-                                     DOB = c.DOB,
-                                     Phone = c.Phone,
-                                     Sex = c.Sex,
-                                     Wallet = c.Wallet,
-                                     Image = c.Image
-                                 };
-                    dgvKH.DataSource = result.ToList();
-                }
+       
+                cus.Phone = txtSearch.Text;
+                dgvKH.DataSource = cus.FindSDT();
             }
         }
 

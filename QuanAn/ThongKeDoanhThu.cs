@@ -1,4 +1,4 @@
-﻿using QuanAn.BL;
+﻿using QuanAn.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,9 +30,9 @@ namespace QuanAn
         {
             try
             {
-                dataGridView1.DataSource = BLBill.LietKe(dateTimePicker1.Value, dateTimePicker2.Value);
+                dataGridView1.DataSource = Bill.LietKe(dateTimePicker1.Value, dateTimePicker2.Value);
                 dataGridView1.Columns["Total"].DefaultCellStyle.Format = "#,##0";
-                textBox1.Text = string.Format("{0:#,##0}", BLBill.ThongKe(dateTimePicker1.Value, dateTimePicker2.Value));
+                textBox1.Text = string.Format("{0:#,##0}", Bill.ThongKe(dateTimePicker1.Value, dateTimePicker2.Value));
             }
             catch { }
         }

@@ -17,6 +17,12 @@ namespace QuanAn.Models
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }
-
+        public static List<Category> GetListCategory()
+        {
+            using (var ctx = new StoreContext())
+            {
+                return ctx.Categories.ToList();
+            }
+        }
     }
 }

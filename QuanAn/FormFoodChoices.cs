@@ -1,4 +1,4 @@
-﻿using QuanAn.BL;
+﻿using QuanAn.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,7 +43,7 @@ namespace QuanAn
         {
             #region Dymamic Menu
             TabControl tab = new TabControl();
-            var listCategory = BLMenu.GetListCategory();
+            var listCategory = Category.GetListCategory();
             tab.Location = new Point(10, 65);
             tab.Size = new Size(555, 445);
             tab.Font = new Font("UTM Bebas", 12, FontStyle.Regular);
@@ -52,7 +52,7 @@ namespace QuanAn
                 TabPage tp = new TabPage(listCategory[i].Name);
                 tp.Location = new Point(10, 58);
                 tp.BackColor = Color.Transparent;
-                var listFood = BLMenu.GetFoodByCategory(listCategory[i].ID);
+                var listFood = Food.GetFoodByCategory(listCategory[i].ID);
                 FlowLayoutPanel fl = new FlowLayoutPanel();
                 fl.Location = new Point(0, 0);
                 fl.BackColor = Color.Transparent;
@@ -66,8 +66,8 @@ namespace QuanAn
                     PictureBox pc = new PictureBox();
                     pc.Location = new Point(20, 10);
                     pc.Size = new Size(130, 120);
-                    if (listFood[j].Image == null) pc.Image = Image.FromFile(@"C:\Users\Admin\Desktop\Food\bia-tiger-lon-01.jpg");
-                    else pc.Image = Image.FromFile(listFood[j].Image);
+                  //  if (listFood[j].Image == null) pc.Image = Image.FromFile(@"C:\Users\Admin\Desktop\Food\bia-tiger-lon-01.jpg");
+                    //else pc.Image = Image.FromFile(listFood[j].Image);
 
                     pc.SizeMode = PictureBoxSizeMode.StretchImage;
                     Label name = new Label();
@@ -130,7 +130,7 @@ namespace QuanAn
             this.Controls.Add(tab);
             tab.BringToFront();
             #endregion
-            ID_Bill= BLBill.AddBill(EmployeeID);
+            ID_Bill= Bill.AddBill(EmployeeID);
             dataGridView1.ReadOnly = true;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AllowUserToAddRows = false;
@@ -147,12 +147,12 @@ namespace QuanAn
             var num = pr.Controls.Find("SL", false).First() as NumericUpDown;
             if (num.Value > 0)
             {
-                BLDetails.AddOrUpdateDetail(Convert.ToInt32(b.Tag.ToString()), ID_Bill, Convert.ToInt32(num.Value));
+                Bill.AddOrUpdateDetail(Convert.ToInt32(b.Tag.ToString()), ID_Bill, Convert.ToInt32(num.Value));
                 pr.BackColor = Color.Yellow;
-                dataGridView1.DataSource = BLBill.GetBill(ID_Bill);
+                dataGridView1.DataSource = Bill.GetBill(ID_Bill);
                 dataGridView1.Columns["Price"].DefaultCellStyle.Format = "#,##0";
                 dataGridView1.Columns["Total"].DefaultCellStyle.Format = "#,##0";
-                textBox2.Text=string.Format("{0:#,##0}", BLBill.TotalByBill(ID_Bill));
+                textBox2.Text=string.Format("{0:#,##0}", Bill.TotalByBill(ID_Bill));
 
             }
         }
@@ -164,10 +164,10 @@ namespace QuanAn
             num.Value = 0;
             try
             {
-                BLDetails.DeleteDetail(Convert.ToInt32(b.Tag.ToString()), ID_Bill);
+                Bill.DeleteDetail(Convert.ToInt32(b.Tag.ToString()), ID_Bill);
                 pr.BackColor = Color.DarkGray;
-                dataGridView1.DataSource = BLBill.GetBill(ID_Bill);
-                textBox2.Text = string.Format("{0:#,##0}", BLBill.TotalByBill(ID_Bill));
+                dataGridView1.DataSource = Bill.GetBill(ID_Bill);
+                textBox2.Text = string.Format("{0:#,##0}", Bill.TotalByBill(ID_Bill));
                 dataGridView1.Columns["Price"].DefaultCellStyle.Format = "#,##0";
                 dataGridView1.Columns["Total"].DefaultCellStyle.Format = "#,##0";
             }
@@ -179,7 +179,7 @@ namespace QuanAn
             if (MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 e.Cancel = false;
-                BLBill.DeleteBillIfNotExist(ID_Bill);
+                Bill.DeleteBillIfNotExist(ID_Bill);
             } 
             else
                 e.Cancel = true;

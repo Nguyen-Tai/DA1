@@ -82,6 +82,24 @@ namespace QuanAn.Models
             }
         }
 
-
+        public static List<dynamic> GetFoodByCategory(int CategoryID)
+        {
+            using (var ctx = new StoreContext())
+            {
+                var list = (from t in ctx.Foods
+                            join p in ctx.Categories on t.Category_ID equals p.ID
+                            where t.Category_ID == CategoryID
+                            select new
+                            {
+                                t.ID,
+                                t.Name,
+                                t.Price,
+                                t.Unit,
+                                CategoryName = p.Name,
+                                t.Image
+                            }).Distinct();
+                return list.ToList<dynamic>();
+            }
+        }
     }
 }

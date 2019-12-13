@@ -71,9 +71,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\BLBill.cs" />
-    <Compile Include="BL\BLMenu.cs" />
-    <Compile Include="BL\BLDetails.cs" />
     <Compile Include="CafeteriaBillReport.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

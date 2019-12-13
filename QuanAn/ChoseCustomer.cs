@@ -1,5 +1,4 @@
-﻿using QuanAn.BL;
-using QuanAn.Models;
+﻿using QuanAn.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +16,7 @@ namespace QuanAn
         private int BillID;
         bool Them;
         string imagepath;
+        Customer cus = new Customer();
         public ChoseCustomer(int BillID)
         {
             InitializeComponent();
@@ -34,45 +34,27 @@ namespace QuanAn
         
         private void btnChon_Click(object sender, EventArgs e)
         {
-            if (BLBill.TotalByBill(BillID) > BLBill.GetWallet(Convert.ToInt32(txtMaKH.Text)))
+            if (Bill.TotalByBill(BillID) > Customer.GetWallet(Convert.ToInt32(txtMaKH.Text)))
             {
                 MessageBox.Show("Ví không đủ tiền");
             }
             else
             {
-                BLBill.AddCustomerToBill(Convert.ToInt32(txtMaKH.Text), BillID);
-                BLBill.ThanhToan(BLBill.TotalByBill(BillID), Convert.ToInt32(txtMaKH.Text));
+                Bill.AddCustomerToBill(Convert.ToInt32(txtMaKH.Text), BillID);
+                Bill.ThanhToan(Bill.TotalByBill(BillID), Convert.ToInt32(txtMaKH.Text));
                 MessageBox.Show("Thanh toán thành công");
                 Report rp = new Report(BillID);
                 rp.ShowDialog();
             }
         }
-        void LoadData()
-        {
-            using (StoreContext db = new StoreContext())
-            {
-                var result = from c in db.Customers
-                             select new
-                             {
-                                 ID = c.ID,
-                                 Name = c.Name,
-                                 Address = c.Address,
-                                 DOB = c.DOB,
-                                 Phone = c.Phone,
-                                 Sex = c.Sex,
-                                 Wallet = c.Wallet,
-                                 Image = c.Image
-                             };
-                dgvKH.DataSource = result.ToList();
-            }
-        }
-
+      
         private void ChoseCustomer_Load(object sender, EventArgs e)
         {
             dgvKH.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvKH.AllowUserToAddRows = false;
             dgvKH.ReadOnly = true;
-            LoadData();           
+            dgvKH.DataSource = Customer.LoadData();
+
         }
 
         private void dgvKH_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -141,7 +123,7 @@ namespace QuanAn
                     db.Customers.Add(customer);
                     db.SaveChanges();
                 }
-                LoadData();
+                dgvKH.DataSource = Customer.LoadData();
                 resettext();
                 //// Không cho thao tác trên các nút Lưu / Hủy
                 btnCapNhat.Enabled = false;
@@ -168,49 +150,23 @@ namespace QuanAn
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            if (rdbTen.Checked) //tìm theo mã SV
+            if (rdbTen.Checked) //tìm Name
             {
-                using (StoreContext db = new StoreContext())
-                {
 
-                    var result = from c in db.Customers
-                                 where c.Name.Contains(txtSearch.Text)
-                                 select new
-                                 {
-                                     ID = c.ID,
-                                     Name = c.Name,
-                                     Address = c.Address,
-                                     DOB = c.DOB,
-                                     Phone = c.Phone,
-                                     Sex = c.Sex,
-                                     Wallet = c.Wallet,
-                                     Image = c.Image
-                                 };
-                    dgvKH.DataSource = result.ToList();
-
-                }
+                cus.Name = txtSearch.Text;
+                dgvKH.DataSource = cus.FindName();
             }
-            else  //tìm theo Họ Tên SV
+            else  //tìm theo Phone
             {
-                using (StoreContext db = new StoreContext())
-                {
-                    var result = from c in db.Customers
-                                 where c.Phone.Contains(txtSearch.Text)
-                                 select new
-                                 {
-                                     ID = c.ID,
-                                     Name = c.Name,
-                                     Address = c.Address,
-                                     DOB = c.DOB,
-                                     Phone = c.Phone,
-                                     Sex = c.Sex,
-                                     Wallet = c.Wallet,
-                                     Image = c.Image
-                                 };
-                    dgvKH.DataSource = result.ToList();
-                }
+
+                cus.Phone = txtSearch.Text;
+                dgvKH.DataSource = cus.FindSDT();
             }
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
