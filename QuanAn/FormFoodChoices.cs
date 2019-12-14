@@ -147,7 +147,7 @@ namespace QuanAn
             var num = pr.Controls.Find("SL", false).First() as NumericUpDown;
             if (num.Value > 0)
             {
-                Bill.AddOrUpdateDetail(Convert.ToInt32(b.Tag.ToString()), ID_Bill, Convert.ToInt32(num.Value));
+                Detail.AddOrUpdateDetail(Convert.ToInt32(b.Tag.ToString()), ID_Bill, Convert.ToInt32(num.Value));
                 pr.BackColor = Color.Yellow;
                 dataGridView1.DataSource = Bill.GetBill(ID_Bill);
                 dataGridView1.Columns["Price"].DefaultCellStyle.Format = "#,##0";
@@ -164,7 +164,7 @@ namespace QuanAn
             num.Value = 0;
             try
             {
-                Bill.DeleteDetail(Convert.ToInt32(b.Tag.ToString()), ID_Bill);
+                Detail.DeleteDetail(Convert.ToInt32(b.Tag.ToString()), ID_Bill);
                 pr.BackColor = Color.DarkGray;
                 dataGridView1.DataSource = Bill.GetBill(ID_Bill);
                 textBox2.Text = string.Format("{0:#,##0}", Bill.TotalByBill(ID_Bill));

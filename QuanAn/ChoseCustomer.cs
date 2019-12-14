@@ -110,19 +110,14 @@ namespace QuanAn
         {
             if (Them)
             {
-                using (StoreContext db = new StoreContext())
-                {
-                    var customer = new Customer();
-                    customer.Name = txtHoTen.Text;
-                    customer.DOB = dtpDOB.Value.Date;
-                    customer.Address = txtDiaChi.Text;
-                    customer.Phone = txtSoDT.Text;
-                    customer.Sex = (rdbNam.Checked) ? "Nam" : "Nữ";
-                    customer.Wallet = Convert.ToInt32(txtWallet.Text);
-                    customer.Image = imagepath;
-                    db.Customers.Add(customer);
-                    db.SaveChanges();
-                }
+                cus.Name = txtHoTen.Text;
+                cus.DOB = dtpDOB.Value.Date;
+                cus.Address = txtDiaChi.Text;
+                cus.Phone = txtSoDT.Text;
+                cus.Sex = (rdbNam.Checked) ? "Nam" : "Nữ";
+                cus.Wallet = Convert.ToInt32(txtWallet.Text);
+                cus.Image = imagepath;
+                cus.AddData();
                 dgvKH.DataSource = Customer.LoadData();
                 resettext();
                 //// Không cho thao tác trên các nút Lưu / Hủy
@@ -166,7 +161,9 @@ namespace QuanAn
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormLogin f = new FormLogin();
+            this.Hide();
+            f.ShowDialog();
         }
     }
 }
